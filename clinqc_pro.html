@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClinQC Pro — Minimal</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial;margin:20px;color:#111}
+    .card{border:1px solid #ddd;padding:12px;border-radius:8px;margin-bottom:12px}
+    .btn{display:inline-block;padding:6px 10px;border-radius:6px;background:#0366d6;color:#fff;text-decoration:none;border:none;cursor:pointer}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:6px;border:1px solid #eee;text-align:left}
+    .muted{color:#666;font-size:0.9em}
+    .alert-row{background:#fff5f5}
+  </style>
+</head>
+<body>
+  <h1>ClinQC Pro — Minimal</h1>
+  <p class="muted">This simplified single-file app demonstrates alerts, resolution modal, and an audit log. Data is persisted locally in <strong>localStorage</strong>.</p>
+
+  <div class="card">
+    <h2>Quick data input</h2>
+    <label>Analyte: <input id="analyte" value="Glucose"></label>
+    <label>Value: <input id="value" type="number" value="100"></label>
+    <button id="addBtn" class="btn">Add Measurement</button>
+    <button id="genBtn" class="btn" style="background:#2ea44f">Generate Sample Data</button>
+  </div>
+
+  <div class="card">
+    <h2>Alert Log</h2>
+    <table id="alertTable"><thead><tr><th>ID</th><th>Analyte</th><th>Value</th><th>Detected</th><th>Action</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>Audit Log (Resolutions)</h2>
+    <button id="exportAudit" class="btn">Export CSV</button>
+    <table id="auditTable"><thead><tr><th>ID</th><th>Analyte</th><th>Value</th><th>Resolved At</th><th>Resolution Notes</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <!-- Resolve Modal (simple) -->
+  <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.4);align-items:center;justify-content:center">
+    <div style="background:#fff;padding:16px;border-radius:8px;max-width:600px;width:95%">
+      <h3>Resolve Alert</h3>
+      <div id="modalBody"></div>
+      <div style="margin-top:8px">
+        <label>Resolution notes</label><br>
+        <textarea id="resolveNotes" rows="4" style="width:100%"></textarea>
+      </div>
+      <div style="margin-top:10px;text-align:right">
+        <button id="cancelResolve" class="btn" style="background:#6c757d">Cancel</button>
+        <button id="saveResolve" class="btn" style="background:#db4c3f">SAVE RESOLUTION</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Simple in-memory storage backed by localStorage
+const STORAGE_ALERTS = 'clinqc.alerts.v1';
+const STORAGE_AUDIT = 'clinqc.audit.v1';
+
+function loadAlerts(){try{return JSON.parse(localStorage.getItem(STORAGE_ALERTS)||'[]')}catch(e){return[]}}
+function saveAlerts(a){localStorage.setItem(STORAGE_ALERTS,JSON.stringify(a))}
+function loadAudit(){try{return JSON.parse(localStorage.getItem(STORAGE_AUDIT)||'[]')}catch(e){return[]}}
+function saveAudit(a){localStorage.setItem(STORAGE_AUDIT,JSON.stringify(a))}
+
+let alerts = loadAlerts();
+let audit = loadAudit();
+let nextId = alerts.reduce((m,x)=>Math.max(m,x.id||0),0)+1;
+
+function escapeHTML(s){return String(s||'').replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]))}
+
+function renderAlerts(){const tbody=document.querySelector('#alertTable tbody');tbody.innerHTML='';
+  alerts.forEach(a=>{
+    const tr=document.createElement('tr');
+    tr.className = a.severity==='high' ? 'alert-row' : '';
+    tr.innerHTML = `<td>${a.id}</td><td>${escapeHTML(a.analyte)}</td><td>${a.value}</td><td>${new Date(a.detectedAt).toLocaleString()}</td><td><button class="btn" data-id="${a.id}">Resolve</button></td>`;
+    tbody.appendChild(tr);
+  });
+  // attach handlers
+  tbody.querySelectorAll('button[data-id]').forEach(b=>b.addEventListener('click',()=>openResolveModal(parseInt(b.dataset.id))))
+}
+
+function renderAudit(){const tbody=document.querySelector('#auditTable tbody');tbody.innerHTML='';
+  audit.forEach(a=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML = `<td>${a.id}</td><td>${escapeHTML(a.analyte)}</td><td>${a.value}</td><td>${new Date(a.resolvedAt).toLocaleString()}</td><td>${escapeHTML(a.notes)}</td>`;
+    tbody.appendChild(tr);
+  })
+}
+
+function detectAlert(analyte,value){ // simple sigma-rule: if value outside mean±3*sd from recent values
+  const history = [];
+  // for simplicity use last 20 measurements stored in audit+alerts (demo only)
+  // here we just generate if value outside static range
+  const lower=70, upper=140; // demo thresholds
+  if(value<lower || value>upper) return {flag:true,severity:'high',reason:`Outside range ${lower}-${upper}`}
+  return {flag:false}
+}
+
+function addMeasurement(analyte,value){
+  const res = detectAlert(analyte,value);
+  if(res.flag){
+    const a={id: nextId++, analyte, value, detectedAt: Date.now(), severity: res.severity, reason: res.reason}
+    alerts.push(a); saveAlerts(alerts); renderAlerts();
+  } else {
+    // non-alert measurement ignored in this minimal app
+    alert('Measurement recorded (no alert)')
+  }
+}
+
+// Modal handlers
+let modalOpenId = null;
+function openResolveModal(id){modalOpenId=id; const a = alerts.find(x=>x.id===id); if(!a) return; document.getElementById('modalBody').innerText = `Alert ${a.id}: ${a.analyte} = ${a.value} — ${a.reason||''}`; document.getElementById('resolveNotes').value=''; document.getElementById('modal').style.display='flex';}
+function closeModal(){modalOpenId=null; document.getElementById('modal').style.display='none'}
+
+function saveResolution(){if(modalOpenId==null) return; const notes=document.getElementById('resolveNotes').value.trim(); const idx = alerts.findIndex(x=>x.id===modalOpenId); if(idx===-1) return; const a = alerts.splice(idx,1)[0]; const rec = {id: a.id, analyte: a.analyte, value: a.value, resolvedAt: Date.now(), notes: notes}; audit.unshift(rec); saveAlerts(alerts); saveAudit(audit); renderAlerts(); renderAudit(); closeModal();}
+
+// Wire UI
+document.getElementById('addBtn').addEventListener('click',()=>{const analyte=document.getElementById('analyte').value.trim(); const value=parseFloat(document.getElementById('value').value); if(!analyte||isNaN(value)){alert('Enter valid analyte and numeric value');return} addMeasurement(analyte,value)})
+
+document.getElementById('genBtn').addEventListener('click',()=>{ // generate some sample alerts
+  addMeasurement('Glucose',45);
+  addMeasurement('Creatinine',300);
+  addMeasurement('Hemoglobin',12.1);
+})
+
+document.getElementById('cancelResolve').addEventListener('click',closeModal);
+document.getElementById('saveResolve').addEventListener('click',saveResolution);
+
+document.getElementById('exportAudit').addEventListener('click',()=>{
+  if(audit.length===0){alert('No audit records');return}
+  const rows = [['id','analyte','value','resolvedAt','notes']].concat(audit.map(r=>[r.id,r.analyte,r.value,new Date(r.resolvedAt).toISOString(),r.notes]));
+  const csv = rows.map(r=>r.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='clinqc_audit.csv'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+})
+
+// initial render
+renderAlerts(); renderAudit();
+</script>
+</body>
+</html>
