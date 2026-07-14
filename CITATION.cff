@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "ClinQC Pro v1.0.0 — Clinical Biochemistry Internal Quality Control Training System"
+message: "If you use ClinQC Pro in academic work, research, or teaching, please cite this software."
+type: software
+authors:
+  - family-names: "Tariq"
+    given-names: "Muhammad Haseeb"
+version: "1.0.0"
+date-released: "2026-07-14"
+repository-code: "https://github.com/MuhammadHaseeb823/Clinqc-Pro"
+url: "https://muhammadhaseeb823.github.io/Clinqc-Pro/"
+license: "MIT"
+
+abstract: >
+  ClinQC Pro is a browser-based Clinical Biochemistry Internal Quality Control
+  training and research application providing simulated laboratory quality
+  control workflows including Levey-Jennings charts, Westgard rule evaluation,
+  QC statistics, multi-analyte simulation, and performance monitoring tools.
+
+keywords:
+  - Clinical Chemistry
+  - Internal Quality Control
+  - Laboratory Medicine
+  - Westgard Rules
+  - Levey-Jennings Chart
+  - Medical Education
+  - Quality Control
+  - Synthetic Data
+
+doi: 10.5281/zenodo.21348547
