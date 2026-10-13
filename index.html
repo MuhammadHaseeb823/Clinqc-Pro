@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="manifest" href="/Clinqc-Pro/manifest.json">
 <meta name="theme-color" content="#2563eb">
-<title>ClinQC Pro · Clinical Biochemistry IQC System v5</title>
+<title>ClinQC Pro · Clinical Biochemistry IQC System v6.0.0</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" crossorigin="anonymous"></script>
@@ -2815,7 +2815,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
 }
 </style>
 </head>
-```html
+<body>
 <script>
 (function() {
   const APP_NAME = "ClinQC Pro"
@@ -2934,7 +2934,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
   };
 })();
 </script>
-```
 <body>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -3021,10 +3020,10 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
     </div>
 
   </div>
-  <div class="sidebar-footer" id="sidebar-footer" title="ClinQC Pro v1.0.0 — Build Jul 2026 — Developed by Muhammad Haseeb Tariq">
+  <div class="sidebar-footer" id="sidebar-footer" title="ClinQC Pro v6.0.0 — Build Oct 2026 — Developed by Muhammad Haseeb Tariq">
     <div class="sidebar-footer-full" style="display:flex;flex-direction:column;line-height:1.3;overflow:hidden;">
-      <span style="font-size:0.66rem;font-weight:700;color:var(--text2);white-space:nowrap;">ClinQC Pro <span id="app-version-tag" style="font-weight:500;color:var(--text3);">v1.0.0</span></span>
-      <span style="font-size:0.6rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Build Jul 2026 · M. H. Tariq</span>
+      <span style="font-size:0.66rem;font-weight:700;color:var(--text2);white-space:nowrap;">ClinQC Pro <span id="app-version-tag" style="font-weight:500;color:var(--text3);">v6.0.0</span></span>
+      <span style="font-size:0.6rem;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Build Oct 2026 · M. H. Tariq</span>
     </div>
     <span class="sidebar-footer-compact">v1</span>
   </div>
@@ -3043,7 +3042,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
   <!-- Research Mode audit banner — hidden by default, shown when research mode active -->
   <div id="rm-audit-banner">
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px;"><path d="M9 2v6.5L4 17a2 2 0 001.7 3h12.6a2 2 0 001.7-3l-5-8.5V2"/><path d="M9 2h6"/></svg> RESEARCH MODE ACTIVE — Equations, 95% CIs, audit trail, and illustrative validation figures visible &nbsp;|&nbsp;
-    ClinQC Pro v5.x &nbsp;|&nbsp; ISO 15189:2022 · CLSI C24-Ed4 · EWMA λ=0.20 · CUSUM k=0.5σ h=5σ &nbsp;|&nbsp;
+    ClinQC Pro v6.0.0 &nbsp;|&nbsp; ISO 15189:2022 · CLSI C24-Ed4 · EWMA λ=0.20 · CUSUM k=0.5σ h=5σ &nbsp;|&nbsp;
     <a href="javascript:nav('validation')" style="color:var(--emerald);text-decoration:underline;">View Validation Metrics</a> &nbsp;|&nbsp;
     <a href="javascript:nav('methods')" style="color:var(--sky);text-decoration:underline;">View Methods &amp; Equations</a>
   </div>
@@ -3948,57 +3947,92 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
         <div>
           <div class="page-breadcrumb" style="--bc-col:var(--rose);"><span class="bc-cat">Validate</span><span class="bc-sep">›</span><span>Method Benchmarking</span></div>
           <div class="view-header-title">Method Benchmarking</div>
-          <div style="color:var(--text2);font-size:0.85rem;">Detection performance across five IQC methods — 300 independent simulation replications</div>
+          <div style="color:var(--text2);font-size:0.85rem;">Simulation-based comparison of five IQC methods — 300 replications, standardized z-scale, fixed seed 17568</div>
         </div>
       </div>
-
-      <!-- DISCLAIMER BANNER -->
       <div style="background: var(--surface);border:1px solid rgba(56,189,248,0.3);border-left:4px solid var(--sky);border-radius:10px;padding:0.65rem 1rem;margin-bottom:0.85rem;display:flex;gap:0.75rem;align-items:flex-start;">
         <div style="font-size:1rem;flex-shrink:0;">ℹ️</div>
         <div>
-          <div style="font-family:var(--syne);font-size:0.72rem;font-weight:800;color:var(--sky);margin-bottom:0.2rem;">REAL SIMULATION RESULTS — MATCHES ACCOMPANYING MANUSCRIPT METHODS</div>
-          <div style="font-size:0.72rem;color:var(--text2);line-height:1.55;">The figures on this page come from an executed Monte Carlo simulation (300 replications, twelve analytes, five fault types) run in Python/scikit-learn, matching the methodology described in the accompanying manuscript's Methods section. <strong>They still describe simulated, idealised conditions and do not represent your laboratory's actual performance</strong> — for figures from your own data, run the Training Lab simulator and report what it actually computes.</div>
+          <div style="font-family:var(--syne);font-size:0.72rem;font-weight:800;color:var(--sky);margin-bottom:0.2rem;">REVISED SIMULATION RESULTS — MATCH THE REVISED MANUSCRIPT (ID 17568) AND ITS ZENODO CODE PACKAGE</div>
+          <div style="font-size:0.72rem;color:var(--text2);line-height:1.55;">Results come from a Monte Carlo simulation of standardized (z-score) QC series: 300 replications, 12 analytes, 3 QC levels, 500 runs per series, fault onset at run 251. Westgard multirules use the standard within-run R-4s rule. Isolation Forest and One-Class SVM are scikit-learn models with thresholds set at the 1% per-observation level on held-out in-control data; an analyte-run alerts if any of its three QC levels alerts, so the realized false-alarm rate is about three times the per-observation target. <strong>These are simulated, idealised conditions. They are not evidence of clinical benefit and do not describe your laboratory's performance.</strong></div>
         </div>
       </div>
-
-      <button class="btn btn-ghost btn-sm" onclick="jumpToHelpSection('hs-benchmark');" style="margin-bottom:0.6rem;" title="How to read this page — full guide &amp; interpretation notes in the User Guide"><span style="font-weight:800;color:var(--sky);">?</span> How to read this page</button>
+      <button class="btn btn-ghost btn-sm" onclick="jumpToHelpSection('hs-benchmark');" style="margin-bottom:0.6rem;" title="How to read this page"><span style="font-weight:800;color:var(--sky);">?</span> How to read this page</button>
       <div class="card" style="margin-bottom:1rem;">
-        <div class="card-title" style="margin-bottom:1rem;">Median Detection Delay with IQR (Runs after fault onset) — real simulation, 300 replications</div>
+        <div class="card-title" style="margin-bottom:1rem;">Median detection delay, IQR and detection within 50 runs (replication level, 300 replications)</div>
         <table class="tbl">
-          <thead><tr><th>Method</th><th>Shift (IQR)</th><th>Trend (IQR)</th><th>Imprecision (IQR)</th><th>Outliers (IQR)</th><th>FAR/100</th><th>Best for</th></tr></thead>
+          <thead><tr><th>Method</th><th>Shift</th><th>Trend</th><th>Imprecision (abrupt ×2)</th><th>Outliers</th><th>False alerts / 100 analyte-runs, fault-free (95% range)</th></tr></thead>
           <tbody>
-            <tr><td><span class="badge b-amber">Westgard</span></td><td class="mono">2.0 (1–3)</td><td class="mono">56.0 (30–80)</td><td class="mono" style="color:var(--emerald)">3.0 (1–6) ✦</td><td class="mono">16.0 (6–32)</td><td class="mono">1.09</td><td style="font-size:0.78rem;color:var(--text2)">Interpretable, accreditation baseline</td></tr>
-            <tr><td><span class="badge b-sky">EWMA</span></td><td class="mono">2.0 (1–3)</td><td class="mono" style="color:var(--emerald)">45.0 (25–64) ✦</td><td class="mono">6.0 (2–12)</td><td class="mono" style="color:var(--rose)">26.0 (10–55)</td><td class="mono" style="color:var(--rose)">1.50 (highest)</td><td style="font-size:0.78rem;color:var(--text2)">Fastest for gradual drift/trend</td></tr>
-            <tr><td><span class="badge b-green">Isolation Forest</span></td><td class="mono">2.0 (0–3)</td><td class="mono">51.0 (28–73)</td><td class="mono" style="color:var(--emerald)">3.0 (1–6) ✦</td><td class="mono">16.0 (6–31)</td><td class="mono">1.02</td><td style="font-size:0.78rem;color:var(--text2)">Imprecision & outliers, complements Westgard</td></tr>
-            <tr style="background:rgba(139,92,246,0.04);"><td><span class="badge b-violet">CUSUM</span></td><td class="mono">2.0 (2–3)</td><td class="mono" style="color:var(--rose)">66.0 (49–81) (slowest)</td><td class="mono" style="color:var(--rose)">9.0 (4–16) (slowest)</td><td class="mono" style="color:var(--rose)">60.0 (26–118) (slowest)</td><td class="mono" style="color:var(--emerald)">0.76 (lowest)</td><td style="font-size:0.78rem;color:var(--text2)">Lowest false-alarm burden; slow to detect</td></tr>
-            <tr><td><span class="badge b-rose">One-Class SVM</span></td><td class="mono">2.0 (1–3)</td><td class="mono">52.0 (28–73)</td><td class="mono">3.0 (1–7)</td><td class="mono" style="color:var(--emerald)">15.0 (6–31) ✦</td><td class="mono">1.33</td><td style="font-size:0.78rem;color:var(--text2)">Fastest for sporadic outliers</td></tr>
+<tr><td><span class="badge b-amber">Westgard</span></td><td class="mono">1.0 (0.0–1.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">30.0 (25.0–37.5)<br><span style="font-size:0.62rem;color:var(--text3);">74% ≤50 runs</span></td><td class="mono">1.0 (0.5–1.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">0.0 (0.0–0.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">2.26 (1.56–3.04)</td></tr>
+<tr><td><span class="badge b-sky">EWMA</span></td><td class="mono">1.0 (1.0–1.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">19.8 (16.0–25.1)<br><span style="font-size:0.62rem;color:var(--text3);">91% ≤50 runs</span></td><td class="mono">1.5 (1.0–2.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">1.0 (0.0–2.5)<br><span style="font-size:0.62rem;color:var(--text3);">98% ≤50 runs</span></td><td class="mono">5.17 (3.44–7.24)</td></tr>
+<tr><td><span class="badge b-violet">CUSUM</span></td><td class="mono">2.0 (1.0–2.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">44.0 (40.0–48.5)<br><span style="font-size:0.62rem;color:var(--text3);">60% ≤50 runs</span></td><td class="mono">3.5 (2.5–4.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">12.5 (8.0–17.5)<br><span style="font-size:0.62rem;color:var(--text3);">85% ≤50 runs</span></td><td class="mono">2.15 (0.88–3.80)</td></tr>
+<tr><td><span class="badge b-green">Isolation Forest</span></td><td class="mono">0.0 (0.0–0.5)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">23.5 (17.5–29.5)<br><span style="font-size:0.62rem;color:var(--text3);">85% ≤50 runs</span></td><td class="mono">0.5 (0.0–1.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">0.0 (0.0–0.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">2.99 (2.07–4.10)</td></tr>
+<tr><td><span class="badge b-rose">One-Class SVM</span></td><td class="mono">1.0 (0.5–1.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">31.5 (24.5–38.5)<br><span style="font-size:0.62rem;color:var(--text3);">75% ≤50 runs</span></td><td class="mono">1.0 (1.0–1.5)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">0.0 (0.0–0.0)<br><span style="font-size:0.62rem;color:var(--text3);">100% ≤50 runs</span></td><td class="mono">3.12 (1.91–5.21)</td></tr>
           </tbody>
         </table>
-        <div style="margin-top:0.5rem; font-family:var(--mono); font-size:0.6rem; color:var(--text3);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Best performer per scenario, from a real executed simulation (see manuscript Methods for full specification). FAR = false alarm rate per 100 in-control runs. Isolation Forest and One-Class SVM here are the genuine scikit-learn trained models (contamination=0.01 / ν=0.01) used in the simulation study — not the app's own internal fixed-weight heuristic scores used elsewhere in the live dashboard, which remain untrained approximations for illustrative interactive use.</div>
+        <div style="margin-top:0.5rem; font-family:var(--mono); font-size:0.6rem; color:var(--text3);">Delay = runs from fault onset (run 251) to first alert; for outliers, from the first injected outlier. Values are medians over 300 replications (each replication is the median over 12 analytes). Methods have different realized false-alarm rates, so delays are not directly comparable without reading the table below.</div>
+      </div>
+      <div class="card" style="margin-bottom:1rem;">
+        <div class="card-title" style="margin-bottom:0.75rem;">No-fault reference: alerts that occur by chance</div>
+        <div style="font-size:0.74rem;color:var(--text2);line-height:1.65;margin-bottom:0.6rem;">The same delay definition was applied to fault-free streams from run 251. A method can look quick on trends partly because it alerts by chance. "Excess detection" is the proportion alerting within 50 runs in the trend scenario minus that in fault-free streams (95% bootstrap CI).</div>
+        <table class="tbl">
+          <thead><tr><th>Method</th><th>Fault-free, alert within 50 runs</th><th>Trend, alert within 50 runs</th><th>Excess detection, percentage points (95% CI)</th></tr></thead>
+          <tbody>
+<tr><td><span class="badge b-amber">Westgard</span></td><td class="mono">61.4%</td><td class="mono">74.2%</td><td class="mono">12.8 (10.8–14.9)</td></tr>
+<tr><td><span class="badge b-sky">EWMA</span></td><td class="mono">72.1%</td><td class="mono">91.1%</td><td class="mono">19.0 (17.3–20.8)</td></tr>
+<tr><td><span class="badge b-violet">CUSUM</span></td><td class="mono">29.6%</td><td class="mono">59.7%</td><td class="mono">30.1 (28.1–32.1)</td></tr>
+<tr><td><span class="badge b-green">Isolation Forest</span></td><td class="mono">72.7%</td><td class="mono">85.4%</td><td class="mono">12.7 (10.8–14.6)</td></tr>
+<tr><td><span class="badge b-rose">One-Class SVM</span></td><td class="mono">57.8%</td><td class="mono">75.2%</td><td class="mono">17.4 (15.3–19.5)</td></tr>
+          </tbody>
+        </table>
       </div>
       <div class="g2">
-        <div class="card"><div class="card-title" style="margin-bottom:0.75rem;">Detection Delay by Scenario</div><div class="chart-wrap chart-toolbar-host" style="height:160px;"><div class="chart-toolbar"><button class="chart-toolbar-btn" title="Export PNG" onclick="genericChartExport('bm-delay-chart','detection_delay')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button><button class="chart-toolbar-btn" title="Fullscreen" onclick="genericChartZoom('bm-delay-chart','Detection Delay by Scenario')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3m13-5v3a2 2 0 01-2 2h-3"/></svg></button></div><canvas id="bm-delay-chart"></canvas></div></div>
-        <div class="card"><div class="card-title" style="margin-bottom:0.75rem;">Sensitivity vs False Alarm (Trend)</div><div class="chart-wrap chart-toolbar-host" style="height:160px;"><div class="chart-toolbar"><button class="chart-toolbar-btn" title="Export PNG" onclick="genericChartExport('bm-tpr-chart','sensitivity_vs_false_alarm')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button><button class="chart-toolbar-btn" title="Fullscreen" onclick="genericChartZoom('bm-tpr-chart','Sensitivity vs False Alarm')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3m13-5v3a2 2 0 01-2 2h-3"/></svg></button></div><canvas id="bm-tpr-chart"></canvas></div><div style="margin-top:0.4rem;font-family:var(--mono);font-size:0.6rem;color:var(--text3);">Single fixed-horizon comparison (50-run cutoff). The manuscript additionally reports full threshold-swept ROC curves (AUC): CUSUM 0.876, EWMA 0.859, Isolation Forest 0.835, One-Class SVM 0.789, Westgard 0.649 — CUSUM has the highest AUC despite the lowest sensitivity at this fixed operating point, indicating its calibrated threshold here is conservative rather than its underlying discrimination being weak.</div></div>
+        <div class="card"><div class="card-title" style="margin-bottom:0.75rem;">Median delay by scenario (runs)</div><div class="chart-wrap" style="height:200px;"><canvas id="bm-delay-chart"></canvas></div></div>
+        <div class="card"><div class="card-title" style="margin-bottom:0.75rem;">Trend: alert within 50 runs, with and without a fault (%)</div><div class="chart-wrap" style="height:200px;"><canvas id="bm-tpr-chart"></canvas></div></div>
       </div>
-
       <div class="card" style="margin-top:1rem;">
-        <div class="card-title" style="margin-bottom:0.75rem;">Detection power across fault severities</div>
-        <div style="font-size:0.78rem;color:var(--text2);line-height:1.7;">The single-severity results above (2σ shift, ×2 SD imprecision, 4σ outliers) were additionally swept across a range of magnitudes (1σ–3σ shift and trend, ×1.5–×3 imprecision, 3σ–5σ outliers), reusing the same trained models. <strong>The relative ordering held at every severity level tested</strong> for trend, imprecision, and outliers — EWMA fastest for trend, Westgard/Isolation Forest fastest for imprecision, One-Class SVM fastest for outliers, and CUSUM slowest of the five in every case — confirming this is not an artefact of the single magnitude used above. See manuscript Figure 3 for the full severity-sweep curves.</div>
+        <div class="card-title" style="margin-bottom:0.75rem;">Severity sweep (median delay in runs; % alerting within 50 runs below)</div>
+        <div style="font-size:0.74rem;color:var(--text2);line-height:1.65;margin-bottom:0.6rem;">Fault size and trajectory were varied using independent streams and the same trained models. Larger step shifts, abrupt SD increases and larger outliers were detected faster by all methods. Progressive imprecision was detected much more slowly than abrupt imprecision and followed the trend-like ordering. Bootstrap CIs are in the manuscript's Supplementary Table S8.</div>
+        <div style="overflow-x:auto;"><table class="tbl">
+          <thead><tr><th>Fault and size</th><th>Westgard</th><th>EWMA</th><th>CUSUM</th><th>Isolation Forest</th><th>One-Class SVM</th></tr></thead>
+          <tbody>
+<tr><td>Step shift, +1 SD</td><td class="mono">4.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">2.5<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">4.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">3.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">4.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Step shift, +1.5 SD</td><td class="mono">1.5<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.5<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">2.5<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">2.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Step shift, +2 SD</td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">2.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Step shift, +3 SD</td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Linear trend, to +1 SD</td><td class="mono">33.2<br><span style="font-size:0.62rem;color:var(--text3);">66%</span></td><td class="mono">22.0<br><span style="font-size:0.62rem;color:var(--text3);">79%</span></td><td class="mono">63.0<br><span style="font-size:0.62rem;color:var(--text3);">37%</span></td><td class="mono">24.0<br><span style="font-size:0.62rem;color:var(--text3);">77%</span></td><td class="mono">35.5<br><span style="font-size:0.62rem;color:var(--text3);">64%</span></td></tr>
+<tr><td>Linear trend, to +1.5 SD</td><td class="mono">33.0<br><span style="font-size:0.62rem;color:var(--text3);">70%</span></td><td class="mono">21.0<br><span style="font-size:0.62rem;color:var(--text3);">86%</span></td><td class="mono">50.0<br><span style="font-size:0.62rem;color:var(--text3);">48%</span></td><td class="mono">23.5<br><span style="font-size:0.62rem;color:var(--text3);">80%</span></td><td class="mono">33.5<br><span style="font-size:0.62rem;color:var(--text3);">70%</span></td></tr>
+<tr><td>Linear trend, to +2 SD</td><td class="mono">29.0<br><span style="font-size:0.62rem;color:var(--text3);">77%</span></td><td class="mono">20.8<br><span style="font-size:0.62rem;color:var(--text3);">91%</span></td><td class="mono">42.5<br><span style="font-size:0.62rem;color:var(--text3);">62%</span></td><td class="mono">23.5<br><span style="font-size:0.62rem;color:var(--text3);">86%</span></td><td class="mono">31.2<br><span style="font-size:0.62rem;color:var(--text3);">76%</span></td></tr>
+<tr><td>Linear trend, to +3 SD</td><td class="mono">28.0<br><span style="font-size:0.62rem;color:var(--text3);">85%</span></td><td class="mono">19.5<br><span style="font-size:0.62rem;color:var(--text3);">98%</span></td><td class="mono">35.0<br><span style="font-size:0.62rem;color:var(--text3);">85%</span></td><td class="mono">21.0<br><span style="font-size:0.62rem;color:var(--text3);">94%</span></td><td class="mono">28.0<br><span style="font-size:0.62rem;color:var(--text3);">89%</span></td></tr>
+<tr><td>Abrupt imprecision, SD ×1.5</td><td class="mono">3.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">4.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">8.5<br><span style="font-size:0.62rem;color:var(--text3);">98%</span></td><td class="mono">2.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">3.5<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Abrupt imprecision, SD ×2</td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">2.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">3.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Abrupt imprecision, SD ×3</td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.5<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Progressive imprecision, SD to ×2</td><td class="mono">24.0<br><span style="font-size:0.62rem;color:var(--text3);">85%</span></td><td class="mono">17.5<br><span style="font-size:0.62rem;color:var(--text3);">89%</span></td><td class="mono">47.5<br><span style="font-size:0.62rem;color:var(--text3);">52%</span></td><td class="mono">18.5<br><span style="font-size:0.62rem;color:var(--text3);">94%</span></td><td class="mono">24.5<br><span style="font-size:0.62rem;color:var(--text3);">85%</span></td></tr>
+<tr><td>Progressive imprecision, SD to ×3</td><td class="mono">20.0<br><span style="font-size:0.62rem;color:var(--text3);">97%</span></td><td class="mono">16.5<br><span style="font-size:0.62rem;color:var(--text3);">96%</span></td><td class="mono">35.0<br><span style="font-size:0.62rem;color:var(--text3);">77%</span></td><td class="mono">15.5<br><span style="font-size:0.62rem;color:var(--text3);">99%</span></td><td class="mono">20.0<br><span style="font-size:0.62rem;color:var(--text3);">98%</span></td></tr>
+<tr><td>Outliers, ±3 SD</td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">98%</span></td><td class="mono">7.0<br><span style="font-size:0.62rem;color:var(--text3);">92%</span></td><td class="mono">33.2<br><span style="font-size:0.62rem;color:var(--text3);">63%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">3.0<br><span style="font-size:0.62rem;color:var(--text3);">97%</span></td></tr>
+<tr><td>Outliers, ±4 SD</td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">1.0<br><span style="font-size:0.62rem;color:var(--text3);">98%</span></td><td class="mono">12.0<br><span style="font-size:0.62rem;color:var(--text3);">86%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+<tr><td>Outliers, ±5 SD</td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">2.0<br><span style="font-size:0.62rem;color:var(--text3);">97%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td><td class="mono">0.0<br><span style="font-size:0.62rem;color:var(--text3);">100%</span></td></tr>
+          </tbody>
+        </table></div>
       </div>
-
       <div class="card" style="margin-top:1rem;">
-        <div class="card-title" style="margin-bottom:0.75rem;">Feature attribution (real SHAP values)</div>
-        <div style="font-size:0.78rem;color:var(--text2);line-height:1.7;">Real Shapley values (TreeExplainer) were computed for Isolation Forest on alarm observations pooled across 20 replications, replacing an earlier simplified feature-ratio approximation. roll_SD dominates attribution for imprecision alerts (mean |SHAP| 1.62); |z|, roll_mean, and ewma dominate for shift and trend (1.47–1.60); attribution is more evenly spread for outliers. A complementary counterfactual analysis (minimal single-feature perturbation to flip an alert) mostly agrees but consistently favours |z| as the cheapest feature to perturb — the two methods measure related but distinct notions of "importance." See manuscript Figure 6 and Limitations for the full discussion. This is separate from the app's own live "SHAP-like" attribution in the Analyte Inspector, which is a heuristic leave-one-out breakdown of the hand-set Risk Score formula, not a trained-model explanation.</div>
+        <div class="card-title" style="margin-bottom:0.75rem;">Feature configuration (AUC, post-onset runs vs fault-free runs)</div>
+        <div style="font-size:0.74rem;color:var(--text2);line-height:1.65;margin-bottom:0.6rem;">A threshold-free comparison of the two machine-learning models by feature set (median over 300 replications). Raw z-scores alone were much weaker for imprecision and trend, which indicates that the engineered window features, not the algorithm alone, drive performance. Permutation sensitivity of features is reported in the manuscript; no SHAP analysis is claimed.</div>
+        <table class="tbl">
+          <thead><tr><th>Model — features</th><th>Shift</th><th>Trend</th><th>Imprecision</th><th>Outliers</th></tr></thead>
+          <tbody>
+<tr><td>Isolation Forest — Full</td><td class="mono">0.987</td><td class="mono">0.836</td><td class="mono">0.932</td><td class="mono">0.999</td></tr>
+<tr><td>Isolation Forest — Raw only</td><td class="mono">0.843</td><td class="mono">0.640</td><td class="mono">0.697</td><td class="mono">0.999</td></tr>
+<tr><td>Isolation Forest — No EWMA</td><td class="mono">0.971</td><td class="mono">0.808</td><td class="mono">0.938</td><td class="mono">0.999</td></tr>
+<tr><td>One-Class SVM — Full</td><td class="mono">0.997</td><td class="mono">0.806</td><td class="mono">0.925</td><td class="mono">0.999</td></tr>
+<tr><td>One-Class SVM — Raw only</td><td class="mono">0.744</td><td class="mono">0.606</td><td class="mono">0.652</td><td class="mono">1.000</td></tr>
+<tr><td>One-Class SVM — No EWMA</td><td class="mono">0.996</td><td class="mono">0.803</td><td class="mono">0.922</td><td class="mono">0.999</td></tr>
+          </tbody>
+        </table>
       </div>
-
       <div class="card" style="margin-top:1rem;">
-        <div class="card-title" style="margin-bottom:0.75rem;">Method Agreement Asymmetry (Imprecision Scenario)</div>
-        <div style="font-size:0.78rem;color:var(--text2);line-height:1.7;">
-          To assess complementarity, the proportion of post-fault runs with exclusive alerts was calculated. 
-          <strong>Isolation Forest-only alerts</strong> (undetected by Westgard) occurred on <strong>15.33%</strong> of post-fault runs, 
-          whereas <strong>Westgard-only alerts</strong> occurred on only <strong>3.78%</strong> of post-fault runs. 
-          Both are non-trivial, proving the two methods provide complementary value rather than one strictly subsuming the other (see manuscript Figure 8).
-        </div>
+        <div class="card-title" style="margin-bottom:0.5rem;">Interpretation</div>
+        <div style="font-size:0.74rem;color:var(--text2);line-height:1.7;">No method was uniformly fastest. For step shifts, abrupt imprecision and isolated gross errors, Westgard multirules, Isolation Forest and One-Class SVM performed similarly and quickly. For slowly developing trends, EWMA had the shortest delay but also the highest false-alert rate and a large share of chance alerts; CUSUM, with its non-resetting configuration, was slowest. Results depend on the simulation's assumptions (Gaussian errors, independent levels, standardized scale) and should be confirmed with real laboratory data before any change to a QC strategy.</div>
       </div>
     </div>
 
@@ -4514,8 +4548,15 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
             <div><label>Reference Method Label</label><input type="text" class="inp" id="mc-ref-label" placeholder="e.g. LC-MS/MS" value="Reference"></div>
             <div><label>Test Method Label</label><input type="text" class="inp" id="mc-test-label" placeholder="e.g. Immunoassay" value="Test"></div>
           </div>
+          <div id="mc-smart-drop" ondragover="event.preventDefault();this.style.borderColor='var(--sky)';" ondragleave="this.style.borderColor='var(--border)';" ondrop="mcSmartDrop(event)" onclick="document.getElementById('mc-smart-file').click()" style="cursor:pointer;border:2px dashed var(--border);border-radius:10px;padding:0.8rem;text-align:center;margin-bottom:0.5rem;">
+            <div style="font-weight:700;font-size:0.76rem;color:var(--sky);">Smart import — drop any data file here or click to browse</div>
+            <div style="font-size:0.66rem;color:var(--text3);line-height:1.5;">Excel (.xlsx/.xls/.ods), CSV, TSV, TXT or JSON. The page finds the table and header, picks the reference and test columns (or long-format method/value columns), detects an analyte column, handles decimal commas and “&lt;” values, and runs the analysis. Rule-based detection, runs locally in your browser; nothing is uploaded.</div>
+            <div id="mc-smart-status" style="font-size:0.7rem;margin-top:0.3rem;color:var(--text2);"></div>
+            <input type="file" id="mc-smart-file" accept=".xlsx,.xls,.xlsm,.xlsb,.ods,.csv,.tsv,.txt,.dat,.json" style="display:none;" onchange="mcSmartHandleFile(this.files[0]);this.value='';">
+          </div>
+          <div id="mc-smart-panel" style="display:none;background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:8px;padding:0.6rem;margin-bottom:0.5rem;"></div>
           <div style="background:rgba(14,165,233,0.06);border-radius:8px;padding:0.65rem;border:1px solid rgba(14,165,233,0.15);margin-bottom:0.5rem;">
-            <div style="font-size:0.68rem;color:var(--sky);margin-bottom:0.35rem;font-weight:700;">PASTE DATA — one pair per line (x, y or x TAB y)</div>
+            <div style="font-size:0.68rem;color:var(--sky);margin-bottom:0.35rem;font-weight:700;">OR PASTE DATA — one pair per line (x, y), or a table with the reference in column 1 and one test method per further column (optional header row) to compare several methods at once</div>
             <textarea id="mc-data-input" class="inp" rows="8" style="width:100%;font-family:var(--mono);font-size:0.7rem;" placeholder="5.10	5.22&#10;6.30	6.18&#10;4.80	4.95&#10;7.20	7.35&#10;3.90	4.02"></textarea>
           </div>
           <div class="form-row cols2">
@@ -4539,6 +4580,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
           <div id="mc-ai-commentary" style="display:none;"></div>
         </div>
       </div>
+      <div class="card" id="mc-multi-card" style="display:none;margin-bottom:1rem;"></div>
       </div> <!-- /panel: entry -->
       <div class="page-tab-panel" data-tab-group="mc" data-tab="charts">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
@@ -4708,7 +4750,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
         <div>
           <div class="page-breadcrumb" style="--bc-col:#6366f1;"><span class="bc-cat">Resources</span><span class="bc-sep">›</span><span>Evidence Base &amp; References</span></div>
           <div class="view-header-title">Evidence Base &amp; References</div>
-          <div style="color:var(--text2);font-size:0.8rem;">Peer-reviewed citations, standards and guidelines underpinning ClinQC Pro v5.x</div>
+          <div style="color:var(--text2);font-size:0.8rem;">Peer-reviewed citations, standards and guidelines underpinning ClinQC Pro v6.0.0</div>
         </div>
       </div>
       <button class="btn btn-ghost btn-sm" onclick="jumpToHelpSection('hs-references');" style="margin-bottom:0.6rem;" title="How to use this page — full guide in the User Guide"><span style="font-weight:800;color:var(--sky);">?</span> How to use this page</button>
@@ -5162,7 +5204,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
       <div class="card" style="margin-top:1rem;text-align:center;padding:1rem;">
         <div style="font-family:var(--syne);font-weight:800;font-size:0.95rem;color:var(--text);">ClinQC Pro</div>
         <div style="font-size:0.72rem;color:var(--text2);margin-top:0.15rem;">Clinical Biochemistry IQC System</div>
-        <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;">Version 1.0.0 · Build Jul 2026</div>
+        <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;">ClinQC Pro v6.0.0 · Build Oct 2026 · M. H. Tariq</div>
         <div style="font-size:0.68rem;color:var(--text3);">Developed by Muhammad Haseeb Tariq</div>
         <div style="font-size:0.65rem;color:var(--text3);margin-top:0.25rem;">© 2026</div>
       </div>
@@ -6041,7 +6083,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
               <div style="font-family:var(--syne);font-size:1.45rem;font-weight:800;color:#fff;line-height:1.15;margin-bottom:0.3rem;">
                 ClinQC Pro — <span style="color: var(--focus);">Help & Documentation</span>
               </div>
-              <div style="font-size:0.72rem;color:rgba(148,163,184,0.85);font-family:var(--mono);">30 modules · Westgard + 4 detection methods · ISO 15189:2022 · v5.x</div>
+              <div style="font-size:0.72rem;color:rgba(148,163,184,0.85);font-family:var(--mono);">30 modules · Westgard + 4 detection methods · ISO 15189:2022 · v6.0.0</div>
             </div>
             <div style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;flex-shrink:0;">
               <button class="btn btn-sm" onclick="startHelpTTS()" style="background:rgba(14,165,233,0.12);color:var(--sky);border:1px solid rgba(14,165,233,0.28);font-size:0.67rem;">
@@ -6383,7 +6425,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
             <tbody>
               <tr><td class="mono" style="color:var(--rose);font-weight:700;">1-3s</td><td>1 result exceeds ±3σ</td><td>Random / gross error</td><td><span class="badge b-red">Critical</span></td><td>Reject run — repeat immediately, inspect probe &amp; reagents</td></tr>
               <tr><td class="mono" style="color:var(--amber);font-weight:700;">2-2s</td><td>2 consecutive results exceed same ±2σ limit</td><td>Systematic bias</td><td><span class="badge b-amber">Warning</span></td><td>Check calibration drift, recalibrate</td></tr>
-              <tr><td class="mono" style="color:var(--amber);font-weight:700;">R-4s</td><td>Range of 2 results &gt;4σ in same run</td><td>Random / imprecision</td><td><span class="badge b-amber">Warning</span></td><td>Check pipette, carry-over, cuvette</td></tr>
+              <tr><td class="mono" style="color:var(--amber);font-weight:700;">R-4s</td><td>One QC level &gt;+2σ and another level &lt;−2σ in the same run (within-run, across levels)</td><td>Random / imprecision</td><td><span class="badge b-amber">Warning</span></td><td>Check pipette, carry-over, cuvette</td></tr>
               <tr><td class="mono" style="color:var(--amber);font-weight:700;">4-1s</td><td>4 consecutive results exceed same ±1σ</td><td>Systematic drift</td><td><span class="badge b-amber">Warning</span></td><td>Monitor trend, recalibrate if confirmed</td></tr>
               <tr><td class="mono" style="color:var(--rose);font-weight:700;">10x</td><td>10 consecutive results on same side of mean</td><td>Systematic bias</td><td><span class="badge b-red">Critical</span></td><td>Recalibrate with fresh calibrators, check lot change</td></tr>
               <tr><td class="mono" style="color:var(--text3);">1-2s</td><td>1 result &gt;±2σ (warning only)</td><td>Warning — no rejection</td><td><span class="badge b-sky">Info</span></td><td>Monitor — no rejection required</td></tr>
@@ -6446,7 +6488,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
         <summary class="acc-summary">⑯ Method Comparison &amp; Bias Analysis</summary>
         <div class="acc-body">
         <div style="background:rgba(245,158,11,0.08);border-radius:7px;padding:0.5rem 0.7rem;margin-bottom:0.65rem;font-size:0.7rem;color:var(--text2);border-left:3px solid var(--amber);"><strong>Training &amp; publication purpose only.</strong> Uses simulated statistical algorithms for teaching method comparison concepts — not a validated instrument verification tool. For formal IVD method validation, use accredited software reviewed by your quality manager under ISO 15189 / CLIA.</div>
-        <p style="font-size:0.8rem;color:var(--text2);line-height:1.75;margin-bottom:0.65rem;">Accessible via <strong>Validate › Method Comparison</strong>. Enter paired Method A / Method B results (comma-separated or line-by-line) to run a full method comparison analysis.</p>
+        <p style="font-size:0.8rem;color:var(--text2);line-height:1.75;margin-bottom:0.65rem;">Accessible via <strong>Validate › Method Comparison</strong>. Upload any Excel, CSV, TSV, TXT or JSON file with the Smart import box (the page detects the table, header, reference and test columns, and any analyte column automatically), or paste paired Method A / Method B results (comma-separated or line-by-line), to run a full method comparison analysis. To compare several test methods with one reference at the same time, upload a table with the reference column and two or more test columns (or long-format data with several methods) and tick the methods to include; a summary table (slope, intercept, bias, limits of agreement, TEa verdict) and overlay plots appear under the data entry area, and clicking a row opens that pair in the detailed view.</p>
         <div style="margin-bottom:0.65rem;">
           <div style="font-family:var(--mono);font-size:0.62rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;">Step-by-Step Guide</div>
           <ol style="font-size:0.75rem;color:var(--text2);line-height:1.75;padding-left:1.1rem;">
@@ -6553,15 +6595,14 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
       <details id="hs-benchmark" class="acc-section help-section-card" style="margin-bottom:0.85rem;border-left:4px solid var(--sky);">
         <summary class="acc-summary">⑳ Method Benchmarking</summary>
         <div class="acc-body">
-        <div style="background:rgba(245,158,11,0.08);border-radius:7px;padding:0.5rem 0.7rem;margin-bottom:0.65rem;font-size:0.7rem;color:var(--text2);border-left:3px solid var(--amber);"><strong>Real simulation data.</strong> Figures come from an executed Monte Carlo simulation (300 replications per fault type, twelve analytes) using synthetic QC run data, matching the methodology in the accompanying manuscript. They represent typical algorithm behaviour under idealised conditions and do not represent your laboratory's actual performance.</div>
-        <p style="font-size:0.8rem;color:var(--text2);line-height:1.75;margin-bottom:0.65rem;">Accessible via <strong>Analyse › Method Benchmarking</strong>. Compares <strong>five</strong> QC detection algorithms — Westgard Multi-Rule, EWMA, CUSUM, Isolation Forest, and One-Class SVM — across four fault types: <strong>Shift</strong> (sudden step change, e.g. new reagent lot), <strong>Trend</strong> (gradual linear drift, e.g. calibrator instability), <strong>Imprecision</strong> (increase in SD/variance, e.g. pipette malfunction), and <strong>Outliers</strong> (random sporadic extreme values).</p>
-        <div style="font-size:0.72rem;color:var(--text2);line-height:1.65;margin-bottom:0.65rem;">Each table cell shows the <strong>median number of runs</strong> required to detect the fault, with the IQR (interquartile range from 300 replications) in brackets. <span style="color:var(--emerald);font-weight:600;">✦ = best performer</span> for that scenario. CUSUM (k=0.5σ, h=5σ per CLSI C24-Ed4) is included as a 5th method alongside the original four.</div>
+        <div style="background:rgba(245,158,11,0.08);border-radius:7px;padding:0.5rem 0.7rem;margin-bottom:0.65rem;font-size:0.7rem;color:var(--text2);border-left:3px solid var(--amber);"><strong>Simulation results.</strong> Figures come from the revised manuscript's Monte Carlo simulation of standardized QC series (300 replications, twelve analytes, three QC levels, fixed seed 17568). They show how the methods behave under idealised conditions and do not represent your laboratory's performance or demonstrate clinical benefit.</div>
+        <p style="font-size:0.8rem;color:var(--text2);line-height:1.75;margin-bottom:0.65rem;">Accessible via <strong>Analyse › Method Benchmarking</strong>. Compares Westgard multirules, EWMA, CUSUM, Isolation Forest and One-Class SVM for a step shift, a linear trend, an abrupt imprecision increase and isolated outliers, plus a no-fault reference, a severity sweep and a feature-configuration (AUC) comparison.</p>
+        <div style="font-size:0.72rem;color:var(--text2);line-height:1.65;margin-bottom:0.65rem;">Each delay cell shows the <strong>median number of runs</strong> from fault onset to the first alert with the IQR over 300 replications, and the percentage of series alerting within 50 runs. The false-alert column counts alerts per 100 analyte-runs in fault-free data; because an analyte-run alerts if any of three QC levels alerts, rates are about three times the per-observation threshold.</div>
         <div class="g2" style="margin-bottom:0.65rem;">
-          <div style="background:var(--bg);border-radius:8px;padding:0.75rem;border:1px solid var(--border);"><div style="font-weight:700;font-size:0.72rem;margin-bottom:0.35rem;">Lower delay = better</div><div style="font-size:0.71rem;color:var(--text2);line-height:1.65;">A method that detects a shift in 2 runs is preferable to one that takes 10 runs, because fewer erroneous patient results are reported before the fault is caught.</div></div>
-          <div style="background:var(--bg);border-radius:8px;padding:0.75rem;border:1px solid var(--border);"><div style="font-weight:700;font-size:0.72rem;margin-bottom:0.35rem;">FAR (False Alarm Rate)</div><div style="font-size:0.71rem;color:var(--text2);line-height:1.65;">Number of false alarms per 100 in-control runs. All five methods fall within a comparable 0.76–1.50 range in this simulation; EWMA has the highest rate (most nuisance alerts) and CUSUM the lowest — important when designing your QC strategy.</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:0.75rem;border:1px solid var(--border);"><div style="font-weight:700;font-size:0.72rem;margin-bottom:0.35rem;">Delay needs the false-alarm rate</div><div style="font-size:0.71rem;color:var(--text2);line-height:1.65;">Methods with more chance alerts look faster. Read delay together with the false-alert column and the no-fault reference (excess detection).</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:0.75rem;border:1px solid var(--border);"><div style="font-weight:700;font-size:0.72rem;margin-bottom:0.35rem;">No single best method</div><div style="font-size:0.71rem;color:var(--text2);line-height:1.65;">Results were similar for shifts, abrupt imprecision and gross outliers. EWMA was quickest for slow trends but had the most chance alerts; CUSUM (no reset) was slowest.</div></div>
         </div>
-        <div style="font-size:0.72rem;color:var(--text2);line-height:1.65;margin-bottom:0.5rem;"><strong>No single method is best for all scenarios.</strong> EWMA is fastest for trend but has the highest false alarm rate; CUSUM has the lowest false alarm rate but is the slowest method for every non-shift fault type at these settings; Isolation Forest and One-Class SVM match or beat the conventional methods for imprecision and outliers. A layered approach combining multiple methods is recommended over relying on any single one.</div>
-        <div style="padding:0.5rem 0.75rem;background:rgba(16,185,129,0.07);border-radius:7px;border:1px solid rgba(16,185,129,0.18);font-size:0.68rem;color:var(--text2);">💡 <strong>For publications:</strong> Cite these figures as simulation-based benchmarks from ClinQC Pro, with reference to Westgard (1981), CLSI C24-Ed4, and the EFLM Biological Variation Database.</div>
+        <div style="padding:0.5rem 0.75rem;background:rgba(16,185,129,0.07);border-radius:7px;border:1px solid rgba(16,185,129,0.18);font-size:0.68rem;color:var(--text2);"><strong>For publications:</strong> cite the manuscript and its Zenodo code package, not this app, and state that results are simulation-based.</div>
       </div>
       </details>
 
@@ -6596,26 +6637,14 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
       <details id="hs-validation" class="acc-section help-section-card" style="margin-bottom:0.85rem;border-left:4px solid var(--sky);">
         <summary class="acc-summary">㉓ Validation &amp; Performance Dashboard</summary>
         <div class="acc-body">
-        <div style="background:rgba(245,158,11,0.08);border-radius:7px;padding:0.5rem 0.7rem;margin-bottom:0.65rem;font-size:0.7rem;color:var(--text2);border-left:3px solid var(--amber);"><strong>Mixed real and illustrative content.</strong> The ROC Comparison chart below shows real AUC values from the accompanying manuscript's ablation analysis (Table 3, imprecision scenario, pooled across 300 replications). The CUSUM change-point statistics and some reproducibility figures elsewhere on this page remain illustrative examples for teaching purposes and were not computed by an executed benchmark within this app — check each card individually before citing a number.</div>
-        <p style="font-size:0.8rem;color:var(--text2);line-height:1.75;margin-bottom:0.65rem;">Accessible via <strong>Validate › Validation Dashboard</strong>. Performance figures for five detection approaches — Westgard Multirules, EWMA, CUSUM, and two heuristic anomaly scores loosely named after Isolation Forest and One-Class SVM (neither is a trained model in this app; see the Anomaly Detection methods section) — the ROC AUC values are real (see banner above); other qualitative trade-off descriptions (e.g. CUSUM's shift-detection speed relative to Westgard) remain illustrative characterisations rather than measured figures from this app.</p>
-        <div style="margin-bottom:0.65rem;">
-          <div style="font-family:var(--mono);font-size:0.62rem;font-weight:700;color:var(--sky);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.4rem;">Step-by-Step Guide</div>
-          <ol style="font-size:0.75rem;color:var(--text2);line-height:1.75;padding-left:1.1rem;">
-            <li>Review each algorithm card — the ROC/AUC figures are real (from the manuscript); other qualitative descriptions are illustrative.</li>
-            <li>Examine the ROC Comparison chart for real AUC values matching Table 3 of the accompanying manuscript.</li>
-            <li>Review the Feature Weight Reference to understand what each heuristic formula weights, and why (illustrative — see Figure 6 of the manuscript for real SHAP-based feature importance).</li>
-            <li>The Reproducibility table's confidence intervals are also illustrative, except the Sigma Metric Calc row, which is genuinely exact (deterministic formula).</li>
-            <li>Use <strong>Export Validation Report</strong> / <strong>Export Manuscript Package</strong> for a written summary of the real formulas/citations this app uses.</li>
-          </ol>
-        </div>
-        <div style="background:rgba(245,158,11,0.06);border-radius:8px;padding:0.6rem;border-left:3px solid var(--amber);font-size:0.68rem;color:var(--text2);line-height:1.7;">
-          <strong>Read before publishing or presenting:</strong>
-          <ul style="margin:0.3rem 0 0;padding-left:1.1rem;">
-            <li><strong>For publication or accreditation submissions:</strong> do not cite any AUC, false-alarm rate, or detection-delay figure from this page — none of them came from an executed study. If you need real comparative figures, generate them yourself with the Training Lab simulator and report what it actually computes, or cite the published literature directly.</li>
-            <li><strong>For training/teaching:</strong> fine to use as a rough illustration of how detection methods typically trade off sensitivity, speed, and false-alarm rate — just be explicit with learners that the specific numbers are illustrative examples, not measured results.</li>
-            <li><strong>What's real on this page:</strong> the underlying Westgard, EWMA, and CUSUM math genuinely runs on your own data elsewhere in the app (Dashboard, Charts, Westgard Inspector) and is appropriate to describe accurately in a manuscript Methods section — see the Export Manuscript Package for accurate wording.</li>
-          </ul>
-        </div>
+        <div style="background:rgba(245,158,11,0.08);border-radius:7px;padding:0.5rem 0.7rem;margin-bottom:0.65rem;font-size:0.7rem;color:var(--text2);border-left:3px solid var(--amber);"><strong>Simulation figures only.</strong> The AUC, delay and false-alert values come from the revised manuscript's simulation (300 replications). The live Isolation Forest / One-Class SVM scores used elsewhere in the app are fixed-weight heuristics that were not evaluated there.</div>
+        <p style="font-size:0.8rem;color:var(--text2);line-height:1.75;margin-bottom:0.65rem;">Accessible via <strong>Validate › Validation Dashboard</strong>. Shows AUC by scenario for the two trained models, CUSUM delays, schematic ROC shapes through the imprecision AUCs, the live heuristic formulas, and a reproducibility table.</p>
+        <ol style="font-size:0.75rem;color:var(--text2);line-height:1.75;padding-left:1.1rem;">
+          <li>Read the AUC cards (median over 300 replications).</li>
+          <li>The ROC chart is schematic: it is drawn through the AUC values, not from empirical curves.</li>
+          <li>The weights shown for the live heuristics are hand-set; no SHAP analysis is claimed.</li>
+          <li><strong>Export Validation Report</strong> / <strong>Export Manuscript Package</strong> give written summaries of the formulas this app actually computes.</li>
+        </ol>
       </div>
       </details>
 
@@ -6898,196 +6927,88 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
       <div class="view-header">
         <div>
           <div class="page-breadcrumb" style="--bc-col:var(--emerald);"><span class="bc-cat">Research</span><span class="bc-sep">›</span><span>Validation &amp; Performance Dashboard</span></div>
-          <div class="view-header-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M8.5 2h7"/><path d="M9 2v16a3 3 0 006 0V2"/><path d="M9 12h6"/></svg> Validation &amp; Performance Dashboard</div>
-          <div style="color:var(--text2);font-size:0.78rem;">Mixed real and illustrative figures for comparing detection methods. <strong>The Isolation Forest / One-Class SVM AUC values and ROC curves are real</strong> (from the accompanying manuscript's executed simulation); other cards remain illustrative examples — see the notice below for exactly which is which.</div>
+          <div class="view-header-title">Validation &amp; Performance Dashboard</div>
+          <div style="color:var(--text2);font-size:0.78rem;">Simulation results from the revised manuscript (ID 17568) and its Zenodo code package. Standardized synthetic data; not clinical evidence.</div>
         </div>
         <div class="view-header-actions">
           <button class="btn btn-em btn-sm" onclick="exportValidationReport()">⬇ Export Validation Report</button>
-          <button class="btn btn-sm" onclick="exportManuscriptPackage()" style="background: var(--pass);color:white;border:none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Export Manuscript Package</button>
+          <button class="btn btn-sm" onclick="exportManuscriptPackage()" style="background: var(--pass);color:white;border:none;">Export Manuscript Package</button>
         </div>
       </div>
-
-      <!-- COMPACT DISCLAIMER + DATASET INFO (collapsed by default; was two full cards stacked above the tabs) -->
       <div class="card" style="margin-bottom:0.75rem;border:1px solid var(--amber);background:rgba(245,158,11,0.04);padding:0.6rem 0.75rem;">
-        <div style="display:flex;align-items:center;gap:0.6rem;flex-wrap:wrap;">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <span style="font-weight:700;font-size:0.78rem;color:var(--amber);">Mixed real &amp; illustrative content</span>
-          <span style="font-size:0.72rem;color:var(--text2);flex:1;min-width:200px;">AUC cards, CUSUM delay card &amp; ROC chart are real (manuscript sim, n=54,000 series); other cards are illustrative — don't cite them.</span>
-          <button class="btn btn-ghost btn-sm" onclick="var d=document.getElementById('val-disclaimer-detail');var b=this;var open=d.style.display!=='none';d.style.display=open?'none':'block';b.textContent=open?'Details':'Hide details';" style="flex-shrink:0;">Details</button>
-          <button class="btn btn-ghost btn-sm" onclick="jumpToHelpSection('hs-validation');" title="Full guide, output reference &amp; publication guidance in the User Guide" style="flex-shrink:0;"><span style="font-weight:800;color:var(--sky);">?</span> Guide</button>
-        </div>
-        <div id="val-disclaimer-detail" style="display:none;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--border);">
-          <div style="font-size:0.72rem;color:var(--text2);line-height:1.65;margin-bottom:0.6rem;"><strong>Real, from the manuscript's executed 300-replication simulation:</strong> the Isolation Forest and One-Class SVM AUC cards, the CUSUM detection-delay card, and the ROC Comparison chart — citable with reference to the manuscript. <strong>Still illustrative, not produced by any benchmark this app ran:</strong> the Change-Point Detection card, the Feature Weight Reference ratios, and the CUSUM Change-Point row in the Reproducibility table — do not cite these in a manuscript, accreditation submission, or method-selection decision. The "Isolation Forest" / "One-Class SVM" heuristics running live elsewhere in this app (Dashboard, Alert Log) are still fixed-weight formulas, not the trained models referenced here — see <strong>Help → AI Methods</strong>.</div>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.6rem 1.5rem;">
-            <div><div style="font-size:0.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Real dataset size</div><div style="font-weight:700;font-size:0.78rem;">54,000 time series (300 reps × 12 analytes × 3 levels × 5 scenarios)</div></div>
-            <div><div style="font-size:0.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Scenarios</div><div style="font-weight:700;font-size:0.78rem;">In-control, shift, trend, imprecision, outliers</div></div>
-            <div><div style="font-size:0.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Standard referenced</div><div style="font-weight:700;font-size:0.78rem;">CLSI C24-Ed4 / ISO 15189:2022</div></div>
-            <div><div style="font-size:0.6rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.2rem;">Want your own numbers?</div><div style="font-weight:700;font-size:0.78rem;">Run the Training Lab simulator yourself</div></div>
-          </div>
-        </div>
+        <div style="font-size:0.72rem;color:var(--text2);line-height:1.6;"><strong style="color:var(--amber);">What is and is not measured here.</strong> AUC, delay and false-alert figures are medians over 300 simulated replications (12 analytes × 3 QC levels × 5 scenarios; 54,000 series; seed 17568). The app's own live Isolation Forest / One-Class SVM scores are fixed-weight heuristics and were not evaluated in the simulation. Nothing on this page demonstrates clinical benefit or regulatory compliance.</div>
       </div>
-
-      <!-- VALIDATION TABS -->
       <div class="page-tabs" data-tab-group="val">
         <button type="button" class="page-tab active" data-tab-group="val" data-tab="auc" onclick="switchPageTab('val','auc')">Detection Performance</button>
-        <button type="button" class="page-tab" data-tab-group="val" data-tab="roc" onclick="switchPageTab('val','roc')">Change-Point &amp; ROC</button>
-        <button type="button" class="page-tab" data-tab-group="val" data-tab="feat" onclick="switchPageTab('val','feat')">Feature Weights</button>
+        <button type="button" class="page-tab" data-tab-group="val" data-tab="roc" onclick="switchPageTab('val','roc')">AUC &amp; ROC</button>
+        <button type="button" class="page-tab" data-tab-group="val" data-tab="feat" onclick="switchPageTab('val','feat')">Live Heuristic Weights</button>
         <button type="button" class="page-tab" data-tab-group="val" data-tab="repro" onclick="switchPageTab('val','repro')">Reproducibility</button>
       </div>
-
       <div class="page-tab-panel active" data-tab-group="val" data-tab="auc">
       <div class="g2" style="margin-bottom:0.85rem;margin-top:0.85rem;gap:1rem;">
-        <!-- Anomaly Detection -->
         <div class="card" style="padding:1rem;">
-          <div class="card-hd" style="margin-bottom:0.75rem;"><div class="card-title">"Isolation Forest" heuristic — real AUC values <span title="Manuscript Table 3" style="color:var(--text3);font-weight:400;cursor:help;">ⓘ</span></div><span class="badge b-amber">Not a trained model in this app</span></div>
+          <div class="card-hd" style="margin-bottom:0.75rem;"><div class="card-title">Isolation Forest (trained) — AUC by scenario</div><span class="badge b-green">Simulation</span></div>
           <div class="g2" style="margin-bottom:0.75rem;gap:0.6rem;">
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Shift AUC</div><div class="stat-n" style="color:var(--emerald);">0.987</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Trend AUC</div><div class="stat-n" style="color:var(--sky);">0.835</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Imprecision AUC</div><div class="stat-n" style="color:var(--violet);">0.931</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Outlier AUC</div><div class="stat-n" style="color:var(--amber);">0.615</div></div>
+            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Shift AUC</div><div class="stat-n" style="color:var(--emerald);">0.987</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Trend AUC</div><div class="stat-n" style="color:var(--sky);">0.836</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Imprecision AUC</div><div class="stat-n" style="color:var(--violet);">0.932</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Outlier AUC</div><div class="stat-n" style="color:var(--amber);">0.999</div></div>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
-            <span style="font-size:0.72rem;color:var(--text2);">Imprecision AUC, raw z-score only</span>
-            <span style="font-family:var(--mono);font-weight:700;color:var(--emerald);">0.698</span>
-          </div>
-          <div style="height:6px;background:rgba(15,23,42,0.07);border-radius:99px;overflow:hidden;margin-bottom:0.6rem;">
-            <div style="height:100%;width:69.8%;background: var(--pass);border-radius:99px;"></div>
-          </div>
-          <div style="font-size:0.68rem;color:var(--text3);">Real values from a trained scikit-learn model in the manuscript's simulation — not this app's live heuristic. <span title="This app's own live Isolation Forest heuristic score elsewhere (Dashboard, Alert Log) is a fixed-weight formula: 0.35|z| + 0.15|Δz| + 0.25|roll_mean| + 0.5·roll_SD + 0.2|EWMA| — see the Anomaly Detection methods section for details." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">What's the difference?</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;"><span style="font-size:0.72rem;color:var(--text2);">Imprecision AUC, raw z-score features only</span><span style="font-family:var(--mono);font-weight:700;">0.697</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;"><span style="font-size:0.72rem;color:var(--text2);">False alerts / 100 analyte-runs (fault-free)</span><span style="font-family:var(--mono);font-weight:700;">2.99</span></div>
+          <div style="font-size:0.68rem;color:var(--text3);">Trained scikit-learn model from the manuscript's simulation (median over 300 replications), not this app's live heuristic score.</div>
         </div>
-
-        <!-- One-Class SVM -->
         <div class="card" style="padding:1rem;">
-          <div class="card-hd" style="margin-bottom:0.75rem;"><div class="card-title">"One-Class SVM" heuristic — real AUC values <span title="Manuscript Table 3" style="color:var(--text3);font-weight:400;cursor:help;">ⓘ</span></div><span class="badge b-amber">Not a trained model in this app</span></div>
+          <div class="card-hd" style="margin-bottom:0.75rem;"><div class="card-title">One-Class SVM (trained) — AUC by scenario</div><span class="badge b-green">Simulation</span></div>
           <div class="g2" style="margin-bottom:0.75rem;gap:0.6rem;">
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Shift AUC</div><div class="stat-n" style="color:var(--emerald);">0.996</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Trend AUC</div><div class="stat-n" style="color:var(--sky);">0.789</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Imprecision AUC</div><div class="stat-n" style="color:var(--violet);">0.903</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Outlier AUC</div><div class="stat-n" style="color:var(--amber);">0.593</div></div>
+            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Shift AUC</div><div class="stat-n" style="color:var(--emerald);">0.997</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Trend AUC</div><div class="stat-n" style="color:var(--sky);">0.806</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Imprecision AUC</div><div class="stat-n" style="color:var(--violet);">0.925</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Outlier AUC</div><div class="stat-n" style="color:var(--amber);">0.999</div></div>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
-            <span style="font-size:0.72rem;color:var(--text2);">False Alarm Rate / 100 runs</span>
-            <span style="font-family:var(--mono);font-weight:700;color:var(--amber);">1.33</span>
-          </div>
-          <div style="height:6px;background:rgba(15,23,42,0.07);border-radius:99px;overflow:hidden;margin-bottom:0.6rem;">
-            <div style="height:100%;width:13.3%;background: var(--warn);border-radius:99px;"></div>
-          </div>
-          <div style="font-size:0.68rem;color:var(--text3);">Real values from a trained scikit-learn model in the manuscript's simulation — not this app's live heuristic. <span title="This app's own live One-Class SVM heuristic score elsewhere in the app is a fixed-weight Euclidean distance over the same 5 features, not a trained SVM." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">What's the difference?</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;"><span style="font-size:0.72rem;color:var(--text2);">Imprecision AUC, raw z-score features only</span><span style="font-family:var(--mono);font-weight:700;">0.652</span></div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;"><span style="font-size:0.72rem;color:var(--text2);">False alerts / 100 analyte-runs (fault-free)</span><span style="font-family:var(--mono);font-weight:700;">3.12</span></div>
+          <div style="font-size:0.68rem;color:var(--text3);">Trained scikit-learn model from the manuscript's simulation (median over 300 replications), not this app's live heuristic score.</div>
         </div>
       </div>
-
-      <!-- CUSUM — full width, own row -->
       <div class="card" style="padding:1rem;margin-bottom:0.75rem;">
-        <div class="card-hd" style="margin-bottom:0.75rem;"><div class="card-title">Σ CUSUM (k=0.5σ, h=5σ) — real detection delays <span title="Manuscript Table 2" style="color:var(--text3);font-weight:400;cursor:help;">ⓘ</span></div><span class="badge b-green">Real, from executed simulation</span></div>
+        <div class="card-hd" style="margin-bottom:0.75rem;"><div class="card-title">Σ CUSUM (k=0.5σ, h=5σ, no reset) — detection delays</div><span class="badge b-green">Simulation</span></div>
         <div class="g2" style="margin-bottom:0.75rem;gap:0.6rem;grid-template-columns:repeat(4,1fr);">
-          <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Shift (median)</div><div class="stat-n" style="color:var(--sky);">2 runs</div></div>
-          <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Trend (median)</div><div class="stat-n" style="color:var(--rose);">66 runs</div></div>
-          <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Imprecision (median)</div><div class="stat-n" style="color:var(--rose);">9 runs</div></div>
-          <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Outliers (median)</div><div class="stat-n" style="color:var(--rose);">60 runs</div></div>
+          <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Shift (median)</div><div class="stat-n" style="color:var(--sky);">2.0 runs</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Trend (median)</div><div class="stat-n" style="color:var(--rose);">44.0 runs</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Imprecision (median)</div><div class="stat-n" style="color:var(--rose);">3.5 runs</div></div><div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Outliers (median)</div><div class="stat-n" style="color:var(--rose);">12.5 runs</div></div>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem;">
-          <span style="font-size:0.72rem;color:var(--text2);">False Alarm Rate / 100 runs (lowest of all 5 methods)</span>
-          <span style="font-family:var(--mono);font-weight:700;color:var(--emerald);">0.76</span>
-        </div>
-        <div style="height:6px;background:rgba(15,23,42,0.07);border-radius:99px;overflow:hidden;margin-bottom:0.6rem;">
-          <div style="height:100%;width:76%;background: var(--pass);border-radius:99px;"></div>
-        </div>
-        <div style="font-size:0.68rem;color:var(--text3);">Slowest of the 5 methods for every non-shift fault type at this calibration. <span title="See the manuscript's ROC analysis (Figure 4), which shows CUSUM has the highest underlying AUC despite this conservative operating point." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">Why keep it, then?</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;"><span style="font-size:0.72rem;color:var(--text2);">False alerts / 100 analyte-runs (fault-free)</span><span style="font-family:var(--mono);font-weight:700;">2.15</span></div>
+        <div style="font-size:0.68rem;color:var(--text3);">CUSUM was the slowest method for trends and outliers, but only 30% of fault-free streams alerted within 50 runs versus 72% for EWMA, so it produced the fewest chance alerts.</div>
       </div>
       </div>
-      <!-- /Detection Performance tab panel -->
-
       <div class="page-tab-panel" data-tab-group="val" data-tab="roc">
-      <div class="g2" style="margin-bottom:0.75rem;margin-top:0.85rem;gap:1rem;">
-        <!-- Change-Point Detection -->
-        <div class="card" style="padding:1rem;">
-          <div class="card-hd" style="margin-bottom:0.6rem;"><div class="card-title">📍 Change-Point Detection</div><span class="badge b-amber">Example figures</span></div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:0.7rem;">
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Detection Rate</div><div class="stat-n" style="color:var(--emerald);">91.8%</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Mean Delay</div><div class="stat-n" style="color:var(--sky);">1.8 runs</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">False Alarms</div><div class="stat-n" style="color:var(--rose);">3.2%</div></div>
-            <div class="stat" style="padding:0.6rem 0.7rem;"><div class="stat-l">Miss Rate</div><div class="stat-n" style="color:var(--amber);">8.2%</div></div>
-          </div>
-          <div style="font-size:0.68rem;color:var(--text3);margin-bottom:0.5rem;">A separate binary-segmentation feature that genuinely runs on your data in the Westgard Inspector — but these performance numbers are illustrative, not measured. <span title="This specific evaluation against injected shifts was not run as part of the manuscript's simulation." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">Why illustrative?</span></div>
-          <div style="background:rgba(245,158,11,0.06);border-radius:6px;padding:0.55rem 0.6rem;border-left:3px solid var(--amber);font-size:0.66rem;">
-            <strong>Example only:</strong> 1σ shift → 78.4% detection · 2σ shift → 94.2% · 3σ shift → 99.1%
-          </div>
-        </div>
-
-        <!-- ROC Visual -->
-        <div class="card" style="padding:1rem;">
-          <div class="card-hd" style="margin-bottom:0.6rem;"><div class="card-title">📊 ROC Comparison — real curves</div><span class="badge b-green">Real, from executed simulation</span></div>
-          <div class="chart-toolbar-host" style="position:relative;height:180px;">
-            <div class="chart-toolbar"><button class="chart-toolbar-btn" title="Export PNG" onclick="genericChartExport('val-roc-chart','roc_comparison')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button><button class="chart-toolbar-btn" title="Fullscreen" onclick="genericChartZoom('val-roc-chart','ROC Comparison — All Models')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3m13-5v3a2 2 0 01-2 2h-3"/></svg></button></div>
-            <canvas id="val-roc-chart"></canvas>
-          </div>
-          <div style="font-size:0.65rem;color:var(--text3);margin-top:0.45rem;">Drawn through real AUC values from the manuscript's imprecision-scenario ablation (Table 3).</div>
-          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.5rem;">
-            <span style="font-size:0.64rem;display:flex;align-items:center;gap:0.3rem;"><span style="display:inline-block;width:10px;height:3px;background:var(--emerald);border-radius:2px;"></span>Isolation Forest, full (0.931)</span>
-            <span style="font-size:0.64rem;display:flex;align-items:center;gap:0.3rem;"><span style="display:inline-block;width:10px;height:3px;background:var(--violet);border-radius:2px;"></span>One-Class SVM, full (0.903)</span>
-            <span style="font-size:0.64rem;display:flex;align-items:center;gap:0.3rem;"><span style="display:inline-block;width:10px;height:3px;background:var(--amber);border-radius:2px;"></span>Iso. Forest, z-scores only (0.698)</span>
-            <span style="font-size:0.64rem;display:flex;align-items:center;gap:0.3rem;"><span style="display:inline-block;width:10px;height:3px;background:rgba(15,23,42,0.3);border-radius:2px;border:1px dashed rgba(15,23,42,0.3);"></span>Random (0.500)</span>
-          </div>
+      <div class="card" style="padding:1rem;margin-top:0.85rem;">
+        <div class="card-hd" style="margin-bottom:0.6rem;"><div class="card-title">ROC shapes through the simulated imprecision AUCs</div><span class="badge b-amber">Schematic</span></div>
+        <div class="chart-toolbar-host" style="position:relative;height:200px;"><canvas id="val-roc-chart"></canvas></div>
+        <div style="font-size:0.65rem;color:var(--text3);margin-top:0.45rem;">Schematic curves drawn through the median AUC values in the imprecision scenario (power-law ROC shape); they are not the empirical ROC curves. Empirical AUCs: see table on the Benchmarking page.</div>
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:0.5rem;font-size:0.64rem;">
+          <span>Isolation Forest, all features (0.932)</span>
+          <span>One-Class SVM, all features (0.925)</span>
+          <span>Isolation Forest, z-scores only (0.697)</span>
+          <span>Random (0.500)</span>
         </div>
       </div>
       </div>
-      <!-- /Change-Point & ROC tab panel -->
-
       <div class="page-tab-panel" data-tab-group="val" data-tab="feat">
-      <!-- Model Explainability -->
       <div class="card" style="margin-bottom:0.75rem;margin-top:0.85rem;padding:1rem;">
-        <div class="card-hd" style="margin-bottom:0.5rem;"><div class="card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Feature Weight Reference — which input matters most per fault type</div><span class="badge b-amber">Example figures</span></div>
-        <div style="font-size:0.7rem;color:var(--text2);margin-bottom:0.75rem;">This app's own fixed-weight heuristic formulas (not learned from data). <span title="For real, computed feature attribution — Shapley values and a minimal-perturbation counterfactual analysis on the manuscript's actual trained Isolation Forest — see Figure 6 of the accompanying manuscript, which found roll_SD dominant for imprecision (consistent with the illustration below) but a more even spread across |z|, roll_mean, and ewma for shift, trend, and outliers than this fixed-weight formula assumes." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">How does this compare to the real model?</span></div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;">
-          <div style="background:rgba(16,185,129,0.04);border-radius:8px;padding:0.85rem;border:1px solid rgba(16,185,129,0.15);">
-            <div style="font-size:0.7rem;font-weight:700;color:var(--emerald);margin-bottom:0.5rem;">Imprecision Alerts</div>
-            <div style="font-size:0.67rem;color:var(--text2);margin-bottom:0.5rem;">Most heavily weighted: roll_SD</div>
-            <div style="display:flex;flex-direction:column;gap:0.4rem;">
-              <div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:0.15rem;"><span>roll_SD ("Isolation Forest")</span><span style="font-weight:700;">×1.63</span></div><div style="height:4px;background:rgba(15,23,42,0.07);border-radius:99px;"><div style="height:100%;width:54%;background:var(--emerald);border-radius:99px;"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:0.15rem;"><span>roll_SD ("One-Class SVM")</span><span style="font-weight:700;">×2.01</span></div><div style="height:4px;background:rgba(15,23,42,0.07);border-radius:99px;"><div style="height:100%;width:67%;background:var(--sky);border-radius:99px;"></div></div></div>
-            </div>
-          </div>
-          <div style="background:rgba(245,158,11,0.04);border-radius:8px;padding:0.85rem;border:1px solid rgba(245,158,11,0.15);">
-            <div style="font-size:0.7rem;font-weight:700;color:var(--amber);margin-bottom:0.5rem;">Trend Alerts</div>
-            <div style="font-size:0.67rem;color:var(--text2);margin-bottom:0.5rem;">Most heavily weighted: ewma, roll_mean</div>
-            <div style="display:flex;flex-direction:column;gap:0.4rem;">
-              <div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:0.15rem;"><span>ewma ("Isolation Forest")</span><span style="font-weight:700;">×3.17</span></div><div style="height:4px;background:rgba(15,23,42,0.07);border-radius:99px;"><div style="height:100%;width:79%;background:var(--amber);border-radius:99px;"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:0.15rem;"><span>roll_mean ("Isolation Forest")</span><span style="font-weight:700;">×2.97</span></div><div style="height:4px;background:rgba(15,23,42,0.07);border-radius:99px;"><div style="height:100%;width:74%;background:var(--violet);border-radius:99px;"></div></div></div>
-            </div>
-          </div>
-          <div style="background:rgba(239,68,68,0.04);border-radius:8px;padding:0.85rem;border:1px solid rgba(239,68,68,0.15);">
-            <div style="font-size:0.7rem;font-weight:700;color:var(--rose);margin-bottom:0.5rem;">Outlier Alerts</div>
-            <div style="font-size:0.67rem;color:var(--text2);margin-bottom:0.5rem;">Most heavily weighted: |z|, Δz</div>
-            <div style="display:flex;flex-direction:column;gap:0.4rem;">
-              <div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:0.15rem;"><span>|z| ("Isolation Forest")</span><span style="font-weight:700;">×3.82</span></div><div style="height:4px;background:rgba(15,23,42,0.07);border-radius:99px;"><div style="height:100%;width:80%;background:var(--rose);border-radius:99px;"></div></div></div>
-              <div><div style="display:flex;justify-content:space-between;font-size:0.65rem;margin-bottom:0.15rem;"><span>Δz ("Isolation Forest")</span><span style="font-weight:700;">×3.17</span></div><div style="height:4px;background:rgba(15,23,42,0.07);border-radius:99px;"><div style="height:100%;width:66%;background:var(--amber);border-radius:99px;"></div></div></div>
-            </div>
-          </div>
-        </div>
-        <div style="margin-top:0.7rem;font-size:0.66rem;color:var(--text3);">Illustrative ratios, not measured from an executed study. <span title="Both heuristic formulas place real weight on rolling SD for imprecision and on EWMA/rolling mean for trend, by design — see the Anomaly Detection methods section for the actual formulas. Secondary-heuristic-only alerts on imprecision-type runs are a known, real pattern (the formulas explicitly weight rolling SD, which Westgard's mean-deviation rules don't directly capture) — but the 26.49% figure quoted in earlier versions of this app was an illustrative example, not a measured rate from your data or any executed study." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">Read the full note</span></div>
+        <div class="card-hd" style="margin-bottom:0.5rem;"><div class="card-title">Live heuristic formulas used in this app</div></div>
+        <div style="font-size:0.72rem;color:var(--text2);line-height:1.7;">The live "Isolation Forest" score in the dashboard is a fixed-weight sum, <span class="mono">0.35|z| + 0.15|Δz| + 0.25|roll_mean| + 0.5·roll_SD + 0.2|EWMA|</span>, and the live "One-Class SVM" score is a fixed-weight Euclidean distance over the same features. Neither is a trained model, and neither was evaluated in the simulation. The weights are set by hand and are not learned feature importances. The manuscript reports permutation sensitivity for the trained models (not SHAP).</div>
       </div>
       </div>
-      <!-- /Feature Weights tab panel -->
-
       <div class="page-tab-panel" data-tab-group="val" data-tab="repro">
-      <!-- Reproducibility -->
       <div class="card" style="margin-top:0.85rem;padding:1rem;">
-        <div class="card-hd" style="margin-bottom:0.5rem;"><div class="card-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-2px;flex-shrink:0;"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Reproducibility &amp; Robustness</div></div>
-        <div style="font-size:0.7rem;color:var(--text2);margin-bottom:0.7rem;">Rows marked <strong>Real</strong> are from the manuscript's executed 300-replication simulation. <span title="The Sigma Metric Calc row is genuinely exact — it is a deterministic formula (σ = (TEa − |bias|) / CV%), so it always agrees exactly with a manual calculation, with no randomness to produce a confidence interval. Other rows remain illustrative examples not measured by an executed study in this app." style="color:var(--sky);cursor:help;text-decoration:underline dotted;">What about the other rows?</span></div>
+        <div class="card-hd" style="margin-bottom:0.5rem;"><div class="card-title">Reproducibility</div></div>
+        <div style="font-size:0.72rem;color:var(--text2);line-height:1.7;margin-bottom:0.7rem;">Every figure here is regenerated by <span class="mono">run_all.sh</span> in the study's code archive (see the manuscript's Data and Code Availability statement; seed 17568, 300 replications). The numerical results are a reconstruction produced for the revision, with the standard within-run R-4s rule, and supersede those of the initial submission.</div>
         <table class="tbl">
-          <thead><tr><th>Component</th><th>Metric</th><th>Median (IQR)</th><th>Replicates</th><th>Status</th></tr></thead>
+          <thead><tr><th>Component</th><th>Metric</th><th>Value</th><th>Replications</th></tr></thead>
           <tbody>
-            <tr><td>Isolation Forest (real model)</td><td>Imprecision AUC</td><td class="mono">0.931</td><td>300</td><td><span class="badge b-green">\u2713 Real</span></td></tr>
-            <tr><td>One-Class SVM (real model)</td><td>Imprecision AUC</td><td class="mono">0.903</td><td>300</td><td><span class="badge b-green">\u2713 Real</span></td></tr>
-            <tr><td>CUSUM</td><td>Trend detection delay (runs)</td><td class="mono">66 (49\u201381)</td><td>300</td><td><span class="badge b-green">\u2713 Real</span></td></tr>
-            <tr><td>One-Class SVM (real model)</td><td>FAR / 100 runs</td><td class="mono">1.33</td><td>300</td><td><span class="badge b-green">\u2713 Real</span></td></tr>
-            <tr><td>CUSUM Change-Point (app feature)*</td><td>FAR / 100 runs (example)</td><td class="mono">0.94 \u00b1 0.34</td><td>100</td><td><span class="badge b-amber">Not measured</span></td></tr>
-            <tr><td>Sigma Metric Calc</td><td>Agreement vs Manual</td><td class="mono">100.0% \u00b1 0.0%</td><td>n/a</td><td><span class="badge b-green">\u2713 Genuinely exact</span></td></tr>
+            <tr><td>Isolation Forest (trained)</td><td>Imprecision AUC</td><td class="mono">0.932</td><td>300</td></tr>
+            <tr><td>One-Class SVM (trained)</td><td>Imprecision AUC</td><td class="mono">0.925</td><td>300</td></tr>
+            <tr><td>CUSUM</td><td>Trend delay, median (IQR), runs</td><td class="mono">44.0 (40.0–48.5)</td><td>300</td></tr>
+            <tr><td>Westgard</td><td>False alerts / 100 analyte-runs</td><td class="mono">2.26</td><td>300</td></tr>
+            <tr><td>Sigma Metric Calc</td><td>Agreement vs manual calculation</td><td class="mono">Deterministic formula</td><td>n/a</td></tr>
           </tbody>
         </table>
       </div>
       </div>
-      <!-- /Reproducibility tab panel -->
     </div>
 
     <!-- ══════════ SYNTHETIC QC DATA GENERATOR ══════════ -->
@@ -7917,7 +7838,7 @@ async function processBatchRoche(lines, headerRowLower) {
     run.ifScore = bIFR.score;
     run.ocScore = bOCS.score;
     const bEW = ewmaCheck(run.ewma);
-    const wgLT = westgard(a.id, run.level, run.z);
+    const wgLT = westgard(a.id, run.level, run.z, {date:run.date, time:run.time, selfId:run.id});
     batchPushAlerts(run, a, wgLT, bEW, bIFR, bOCS, run.newAnalyte);
     DB.runs.push(run);
     totalImportedRuns++;
@@ -8199,7 +8120,7 @@ async function processBatch() {
         run.ifScore  = bIFR.score;
         run.ocScore  = bOCS.score;
         const bEW   = ewmaCheck(run.ewma);
-      const wgLT = westgard(a.id, run.level, run.z); // uses zHistory updated by computeFeatures
+      const wgLT = westgard(a.id, run.level, run.z, {date:run.date, time:run.time, selfId:run.id}); // uses zHistory updated by computeFeatures
       batchPushAlerts(run, a, wgLT, bEW, bIFR, bOCS, run.newAnalyte);
       DB.runs.push(run);
       totalImportedRuns++;
@@ -8258,7 +8179,7 @@ async function processBatch() {
         }
         const z = sd > 0 ? (runVal - mean) / sd : 0;
         const runId = 'r_'+Date.now()+'_'+Math.random().toString(36).substr(2,5);
-        const wg = westgard(a.id, level, z);
+        const wg = westgard(a.id, level, z, {date:rowDate, time:'09:00'});
         const alerts = wg.rules.map(rule => ({ method:'westgard', rule }));
         DB.runs.push({ id:runId, analyteId:a.id, level, value:+runVal.toFixed(3), date:rowDate, time:'09:00', analyzer:'Summary Import', notes:'From daily summary', z, ewma:z, ifScore:'0.00', alerts });
         imported++;
@@ -8333,7 +8254,7 @@ async function processBatch() {
       a.levels[level]={mean:parseFloat(mean.toFixed(4)),sd:parseFloat(sd.toFixed(4)),te:(a.levels[level]&&a.levels[level].te)?a.levels[level].te:parseFloat((mean*0.2).toFixed(4))};
       grp.forEach(g => {
         const z = (g.val - a.levels[level].mean) / a.levels[level].sd;
-        const wg = westgard(a.id, level, z);
+        const wg = westgard(a.id, level, z, {date:g.date, time:g.time});
         const runId='r_'+Date.now()+'_'+Math.random().toString(36).substr(2,5);
         DB.runs.push({ id:runId,analyteId:a.id,level,value:g.val,date:g.date,time:g.time,analyzer:'Columnar Import',notes:'Columnar format',z,ewma:z,ifScore:'0.00',alerts:wg.rules.map(r=>({method:'westgard',rule:r})) });
       });
@@ -8381,7 +8302,7 @@ async function processBatch() {
     ['L1','L2','L3'].forEach(lv => { var _te=(a.levels[lv]&&a.levels[lv].te)?a.levels[lv].te:parseFloat((mean*0.2).toFixed(4)); a.levels[lv]={mean:parseFloat(mean.toFixed(4)),sd:parseFloat(sd.toFixed(4)),te:_te}; });
     vals.forEach(v => {
       const z = (v.val - a.levels[v.level].mean) / a.levels[v.level].sd;
-      const wg = westgard(a.id, v.level, z);
+      const wg = westgard(a.id, v.level, z, {date:v.date, time:'09:00'});
       DB.runs.push({ id:'r_'+Date.now()+'_'+Math.random().toString(36).substr(2,5), analyteId:a.id, level:v.level, value:v.val, date:v.date, time:'09:00', analyzer:'Sequential Import', notes:'Single-analyte sequential', z, ewma:z, ifScore:'0.00', alerts:wg.rules.map(r=>({method:'westgard',rule:r})) });
     });
     const pSelEl=document.getElementById('nab-period-sel'), fromEl=document.getElementById('nab-from'), toEl=document.getElementById('nab-to');
@@ -8482,7 +8403,7 @@ async function processBatch() {
         run.ifScore  = bIFR.score;
         run.ocScore  = bOCS.score;
         const bEW   = ewmaCheck(run.ewma);
-      const wgWM = westgard(a.id, run.level, run.z);
+      const wgWM = westgard(a.id, run.level, run.z, {date:run.date, time:run.time, selfId:run.id});
       const isNewWide = (a.method === 'Auto-Matrix' || a.cat === 'Discovered');
       batchPushAlerts(run, a, wgWM, bEW, bIFR, bOCS, isNewWide);
       DB.runs.push(run);
@@ -8637,7 +8558,7 @@ async function processBatch() {
     run.ifScore  = bIFR.score;
     run.ocScore  = bOCS.score;
     const bEW   = ewmaCheck(run.ewma);
-    const wgStd = westgard(a.id, run.level, run.z);
+    const wgStd = westgard(a.id, run.level, run.z, {date:run.date, time:run.time, selfId:run.id});
     const isNewStd = (a.method === 'Auto-Matrix' || a.cat === 'Discovered');
     batchPushAlerts(run, a, wgStd, bEW, bIFR, bOCS, isNewStd);
 
@@ -9688,7 +9609,7 @@ function exportData(format) {
       doc.setFontSize(10);
       doc.setTextColor(100);
       
-      let reportTitle = "Clinical Record v5.x";
+      let reportTitle = "Clinical Record v6.0.0";
       if (activeView === 'view-alerts') reportTitle = "Active Alert Log";
       if (activeView === 'view-audit') reportTitle = "Resolution & Audit Log";
       if (activeView === 'view-analytes') reportTitle = "Analyte Calibration Library";
@@ -10881,7 +10802,7 @@ var TROUBLESHOOT = {
     },
     {
       rule:'R-4s', label:'R-4s Violation', type:'critical',
-      trigger:'The range between two consecutive QC results exceeds 4 SD.',
+      trigger:'Within the same run, one QC level is above +2 SD and another level is below −2 SD (range between levels exceeds 4 SD, opposite sides).',
       interpretation:'Indicates random error. One result is positive, the other negative — suggestive of imprecision or instability.',
       causes:['Carry-over between samples','Pipetting imprecision (air bubbles, partial aspiration)','Temperature fluctuation during run','Cuvette contamination','Reagent mixing problem'],
       steps:[
@@ -11194,7 +11115,21 @@ function computeFeatures(z, analyteKey, level) {
   return { z, absZ: Math.abs(z), deltaZ, ewmaVal, rollMean, rollSD };
 }
 
-function westgard(analyteKey, level, z) {
+function r4sWithinRun(analyteId, level, z, date, time, selfId) {
+  // Standard Westgard R-4s: within one run, one QC level exceeds +2 SD and another level exceeds -2 SD
+  // (the two results differ by more than 4 SD in opposite directions). "Same run" = same analyte, same date and time.
+  if (date === undefined || time === undefined || date === null) return false;
+  var runs = DB.runs || [];
+  for (var i = runs.length - 1; i >= 0; i--) {
+    var r = runs[i];
+    if (r.analyteId !== analyteId || r.level === level || r.id === selfId) continue;
+    if (r.date !== date || r.time !== time) continue;
+    if ((z > 2 && r.z < -2) || (z < -2 && r.z > 2)) return true;
+  }
+  return false;
+}
+
+function westgard(analyteKey, level, z, ctx) {
   var key = analyteKey + '_' + level;
   var hist = DB.zHistory[key] || [];
   var violations = [];
@@ -11203,7 +11138,7 @@ function westgard(analyteKey, level, z) {
   var n = hist.length;
   if (n >= 2 && Math.abs(hist[n-1]) > 2 && Math.abs(hist[n-2]) > 2 && Math.sign(hist[n-1]) === Math.sign(hist[n-2]))
     violations.push('2-2s');
-  if (n >= 2 && Math.abs(hist[n-1]-hist[n-2]) > 4) violations.push('R-4s');
+  if (ctx && r4sWithinRun(analyteKey, level, z, ctx.date, ctx.time, ctx.selfId)) violations.push('R-4s');
   if (n >= 4) {
     var slice4 = hist.slice(-4);
     var allPos = true, allNeg = true;
@@ -11245,7 +11180,7 @@ function getQuickFix(method, rule, analyteName) {
     var fixes = {
       '1-3s': 'Repeat QC immediately. Inspect ' + analyteName + ' probe and cuvette. Reconstitute fresh vial if repeat fails.',
       '2-2s': 'Check for calibration drift in ' + analyteName + '. Re-calibrate using fresh calibrators.',
-      'R-4s': 'Suspect imprecision in ' + analyteName + ' analysis. Check for carry-over and inspect pipette probe.',
+      'R-4s': 'Suspect increased random error (imprecision) in ' + analyteName + ' analysis. Check for carry-over and inspect pipette probe.',
       '4-1s': 'Monitor ' + analyteName + ' trend. Recalibrate if drift confirmed.',
       '10x':  'Systematic bias detected for ' + analyteName + '. Recalibrate. Check QC lot matrix shift.',
     };
@@ -13286,7 +13221,8 @@ function previewWestgardReadOnly(analyteId, level, z) {
   if (Math.abs(z) > 3.0) violations.push('1-3s');
   if (hist.length >= 1 && Math.abs(z) > 2 && Math.abs(hist[hist.length-1]) > 2 && Math.sign(z) === Math.sign(hist[hist.length-1]))
     violations.push('2-2s');
-  if (hist.length >= 1 && Math.abs(z - hist[hist.length-1]) > 4) violations.push('R-4s');
+  try { var _pd = normalizeDateInput(document.getElementById('entry-date').value), _pt = document.getElementById('entry-time').value;
+    if (_pt && r4sWithinRun(analyteId, level, z, _pd, _pt)) violations.push('R-4s'); } catch(e) {}
   if (hist.length >= 3) {
     var slice3 = hist.slice(-3).concat([z]);
     var allPos = true, allNeg = true;
@@ -13449,7 +13385,7 @@ function submitQCRun() {
   var f = computeFeatures(z, a.id, level);
 
   // Run methods
-  var wg = westgard(a.id, level, z);
+  var wg = westgard(a.id, level, z, {date:date, time:time});
   var ew = ewmaCheck(f.ewmaVal);
   var ifr = isoForest(f);
   var ocsvm = ocSVM(f);
@@ -17455,32 +17391,21 @@ function initBenchmarkCharts() {
 
   bmDelay = new Chart(document.getElementById('bm-delay-chart').getContext('2d'), {
     type:'bar',
-    data:{ labels:['Shift','Trend','Imprecision','Outliers'],
-      datasets:[
-        {label:'Westgard',data:[2,56,3,16],backgroundColor:'rgba(251,191,36,0.7)'},
-        {label:'EWMA',data:[2,45,6,26],backgroundColor:'rgba(56,189,248,0.7)'},
-        {label:'CUSUM',data:[2,66,9,60],backgroundColor:'rgba(139,92,246,0.8)'},
-        {label:'Isolation Forest',data:[2,51,3,16],backgroundColor:'rgba(52,211,153,0.7)'},
-        {label:'One-Class SVM',data:[2,52,3,15],backgroundColor:'rgba(244,63,94,0.5)'},
-      ]},
+    data:{ labels:['Shift','Trend','Imprecision','Outliers'], datasets:[{label:'Westgard',data:[1.0,30.0,1.0,0.0],backgroundColor:'rgba(42,120,214,0.85)'},{label:'EWMA',data:[1.0,19.75,1.5,1.0],backgroundColor:'rgba(235,104,52,0.85)'},{label:'CUSUM',data:[2.0,44.0,3.5,12.5],backgroundColor:'rgba(0,131,0,0.85)'},{label:'Isolation Forest',data:[0.0,23.5,0.5,0.0],backgroundColor:'rgba(98,80,214,0.85)'},{label:'One-Class SVM',data:[1.0,31.5,1.0,0.0],backgroundColor:'rgba(213,81,129,0.85)'}] },
     options: Object.assign({}, defaults, { scales:{
       x:{ticks:{color:'#8bacc8',font:{family:'IBM Plex Mono',size:9}},grid:{display:false}},
-      y:{ticks:{color:'#3d5470',font:{family:'IBM Plex Mono',size:9}},grid:{color:'rgba(15,23,42,0.05)'},title:{display:true,text:'Median runs to detection (real simulation, 300 reps)',color:'#3d5470'}}
+      y:{ticks:{color:'#3d5470',font:{family:'IBM Plex Mono',size:9}},grid:{color:'rgba(15,23,42,0.05)'},title:{display:true,text:'Median delay, runs (300 replications)',color:'#3d5470'}}
     }})
   });
-
   bmTpr = new Chart(document.getElementById('bm-tpr-chart').getContext('2d'), {
-    type:'scatter',
-    data:{ datasets:[
-      {label:'CUSUM',data:[{x:0.0076,y:0.273}],backgroundColor:'rgba(139,92,246,0.9)',pointRadius:12},
-      {label:'EWMA',data:[{x:0.0150,y:0.574}],backgroundColor:'var(--sky)',pointRadius:12},
-      {label:'One-Class SVM',data:[{x:0.0133,y:0.482}],backgroundColor:'rgba(244,63,94,0.7)',pointRadius:12},
-      {label:'Westgard',data:[{x:0.0109,y:0.445}],backgroundColor:'var(--amber)',pointRadius:12},
-      {label:'Isolation Forest',data:[{x:0.0102,y:0.488}],backgroundColor:'var(--emerald)',pointRadius:12},
+    type:'bar',
+    data:{ labels:["Westgard", "EWMA", "CUSUM", "Isolation Forest", "One-Class SVM"], datasets:[
+      {label:'Fault-free (chance alerts)',data:[61.4, 72.1, 29.6, 72.7, 57.8],backgroundColor:'rgba(120,120,120,0.55)'},
+      {label:'Linear trend to +2 SD',data:[74.2, 91.1, 59.7, 85.4, 75.2],backgroundColor:'rgba(42,120,214,0.85)'}
     ]},
     options: Object.assign({}, defaults, { scales:{
-      x:{ticks:{color:'#3d5470',font:{family:'IBM Plex Mono',size:9}},grid:{color:'rgba(15,23,42,0.05)'},title:{display:true,text:'FPR, in-control (real simulation, per run)',color:'#3d5470'}},
-      y:{ticks:{color:'#3d5470',font:{family:'IBM Plex Mono',size:9}},grid:{color:'rgba(15,23,42,0.05)'},title:{display:true,text:'Sensitivity, trend @ 50-run horizon (real simulation)',color:'#3d5470'}}
+      x:{ticks:{color:'#8bacc8',font:{family:'IBM Plex Mono',size:9}},grid:{display:false}},
+      y:{min:0,max:100,ticks:{color:'#3d5470',font:{family:'IBM Plex Mono',size:9}},grid:{color:'rgba(15,23,42,0.05)'},title:{display:true,text:'% of series alerting within 50 runs',color:'#3d5470'}}
     }})
   });
 
@@ -18231,7 +18156,7 @@ function runEduSimulation() {
     if (Math.abs(z) > 3.0) wgAlarms.push('1-3s');
     let n = history.length;
     if (n >= 2 && Math.abs(history[n-1]) > 2 && Math.abs(history[n-2]) > 2 && Math.sign(history[n-1]) === Math.sign(history[n-2])) wgAlarms.push('2-2s');
-    if (n >= 2 && Math.abs(history[n-1] - history[n-2]) > 4) wgAlarms.push('R-4s');
+    // R-4s is a within-run rule across QC levels; this single-level simulator cannot evaluate it.
     if (n >= 4) {
       let s4 = history.slice(-4);
       if (s4.every(x => x > 1) || s4.every(x => x < -1)) wgAlarms.push('4-1s');
@@ -20419,8 +20344,8 @@ function smWestgard(zArr){
       else flags.push('2-2s');
     }
 
-    // R-4s: range between consecutive >4s — random error
-    if(i>=1&&Math.abs(z-zArr[i-1])>4){flags.push('R-4s');status='Violation';}
+    // R-4s (standard, within-run across levels) is evaluated in westgard(); not applicable to one series
+    // R-4s is a within-run rule across QC levels and cannot be evaluated on a single-level series.
 
     // 2of3-2s: 2 of 3 consecutive >2s — systematic error
     if(i>=2){
@@ -21395,7 +21320,7 @@ function smRenderWestgardPanel(runs,analyte,level){
     '1-2s':'Warning — single result >2s, repeat before reporting',
     '1-3s':'Reject run — gross/random error, single result >3s',
     '2-2s':'Systematic error — 2 consecutive results >2s same side',
-    'R-4s':'Random error — range between consecutive results >4s',
+    'R-4s':'Random error — one level >+2s and another <−2s within the same run',
     '2of3-2s':'Systematic error — 2 of 3 consecutive results >2s',
     '3-1s':'Systematic shift — 3 consecutive results >1s same side',
     '4-1s':'Systematic shift — 4 consecutive results >1s same side',
@@ -22028,6 +21953,453 @@ function updateEQASChart() {
 // ═══════════════════════════════════════════════════════════════════════════
 // ██████╗ METHOD COMPARISON ENGINE — Deming + Bland-Altman (CLSI EP09-A3)
 // ═══════════════════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════
+// METHOD COMPARISON — SMART FILE IMPORT (rule-based auto-detection, runs locally in the browser)
+// Accepts .xlsx .xls .xlsm .ods .csv .tsv .txt .dat .json, finds the data table, the header row, the
+// reference / test columns (or long-format method/value columns) and an optional analyte column.
+// ════════════════════════════════════════════════════════
+var _mcSmart = { tables: [], sel: null, fileName: '' };
+
+function mcNum(v) {
+  if (v === null || v === undefined) return null;
+  if (typeof v === 'number') return isFinite(v) ? v : null;
+  var s = String(v).trim();
+  if (!s || /^(na|n\/a|nan|null|nd|-|--|\.)$/i.test(s)) return null;
+  s = s.replace(/ |\s/g, '').replace(/^[<>≤≥~]=?/, function(){ return ''; });
+  if (/^[<>≤≥]/.test(String(v).trim())) return null;                 // censored results are not usable pairs
+  if (/^-?\d{1,3}(\.\d{3})+,\d+$/.test(s)) s = s.replace(/\./g, '').replace(',', '.');   // 1.234,5
+  else if (/^-?\d+,\d+$/.test(s)) s = s.replace(',', '.');                                 // 5,10
+  else if (/^-?\d{1,3}(,\d{3})+(\.\d+)?$/.test(s)) s = s.replace(/,/g, '');                // 1,234.5
+  s = s.replace(/%$/, '');
+  if (!/^[-+]?(\d+\.?\d*|\.\d+)([eE][-+]?\d+)?$/.test(s)) return null;
+  var n = parseFloat(s); return isFinite(n) ? n : null;
+}
+function mcCensored(v) { return typeof v === 'string' && /^\s*[<>≤≥]/.test(v); }
+
+function mcSniffDelimited(text) {
+  text = text.replace(/^﻿/, '');
+  var lines = text.split(/\r\n|\n|\r/).filter(function(l){ return l.trim() !== ''; }).slice(0, 60);
+  var cands = ['\t', ';', ',', '|'], best = null, bestScore = -1;
+  cands.forEach(function(d) {
+    var counts = lines.map(function(l){ return mcSplitLine(l, d).length; });
+    var modal = {}; counts.forEach(function(c){ modal[c] = (modal[c]||0) + 1; });
+    var mc = 1, mf = 0; Object.keys(modal).forEach(function(k){ if (modal[k] > mf && +k > 1) { mf = modal[k]; mc = +k; } });
+    var score = mc > 1 ? (mf / Math.max(lines.length,1)) * Math.min(mc, 6) : 0;
+    if (score > bestScore) { bestScore = score; best = d; }
+  });
+  if (bestScore <= 0) best = /\s{2,}|\s/.test(lines[0] || '') ? 'ws' : ',';
+  return best;
+}
+function mcSplitLine(line, d) {
+  if (d === 'ws') return line.trim().split(/\s+/);
+  var out = [], cur = '', q = false;
+  for (var i = 0; i < line.length; i++) {
+    var ch = line[i];
+    if (ch === '"') { if (q && line[i+1] === '"') { cur += '"'; i++; } else q = !q; }
+    else if (ch === d && !q) { out.push(cur); cur = ''; }
+    else cur += ch;
+  }
+  out.push(cur); return out.map(function(c){ return c.trim(); });
+}
+function mcTextToRows(text) {
+  var d = mcSniffDelimited(text);
+  return text.replace(/^﻿/, '').split(/\r\n|\n|\r/).filter(function(l){ return l.trim() !== ''; }).map(function(l){ return mcSplitLine(l, d); });
+}
+function mcJsonToRows(text) {
+  var j = JSON.parse(text), rows = [];
+  if (!Array.isArray(j)) { var k = Object.keys(j).find(function(k){ return Array.isArray(j[k]); }); if (k) j = j[k]; else if (typeof j === 'object') { // column object {ref:[..], test:[..]}
+      var keys = Object.keys(j).filter(function(k){ return Array.isArray(j[k]); });
+      if (keys.length >= 2) { var n = Math.max.apply(null, keys.map(function(k){ return j[k].length; })); rows.push(keys); for (var i=0;i<n;i++) rows.push(keys.map(function(k){ return j[k][i]; })); return rows; } } }
+  if (!Array.isArray(j) || !j.length) return [];
+  if (Array.isArray(j[0])) return j;
+  var keys2 = []; j.forEach(function(o){ Object.keys(o||{}).forEach(function(k){ if (keys2.indexOf(k) < 0) keys2.push(k); }); });
+  rows.push(keys2); j.forEach(function(o){ rows.push(keys2.map(function(k){ return o[k]; })); }); return rows;
+}
+
+// Build candidate tables from a file ------------------------------------------------------
+function mcReadFileToTables(file, cb) {
+  var name = file.name, ext = (name.split('.').pop() || '').toLowerCase();
+  var binary = /^(xlsx|xls|xlsm|xlsb|ods)$/.test(ext);
+  var reader = new FileReader();
+  reader.onerror = function() { cb(new Error('Could not read the file.')); };
+  reader.onload = function(e) {
+    try {
+      var tables = [];
+      if (binary) {
+        if (typeof XLSX === 'undefined') throw new Error('The spreadsheet reader is not loaded (needs internet access once). Save as CSV and retry.');
+        var wb = XLSX.read(new Uint8Array(e.target.result), { type: 'array', cellDates: false });
+        wb.SheetNames.forEach(function(sn) {
+          var rows = XLSX.utils.sheet_to_json(wb.Sheets[sn], { header: 1, raw: true, defval: null, blankrows: false });
+          if (rows.length) tables.push({ name: sn, rows: rows });
+        });
+      } else {
+        var text = e.target.result, trimmed = text.replace(/^﻿/, '').trim();
+        if (/^[\[{]/.test(trimmed) && (ext === 'json' || ext === 'txt' || ext === '')) { try { tables.push({ name: 'JSON', rows: mcJsonToRows(trimmed) }); } catch (je) { tables.push({ name: 'Text', rows: mcTextToRows(text) }); } }
+        else tables.push({ name: ext === 'csv' ? 'CSV' : 'Text', rows: mcTextToRows(text) });
+      }
+      cb(null, tables);
+    } catch (err) { cb(err); }
+  };
+  if (binary) reader.readAsArrayBuffer(file); else reader.readAsText(file);
+}
+
+// Analyse one table -----------------------------------------------------------------------
+var MC_REF_RE  = /(^|[^a-z])(ref|reference|comparative|comparator|method\s*a|meth\s*a|old|current|existing|x|gold|lc-?ms|predicate|analy[sz]er\s*1|instrument\s*1|lab\s*a)([^a-z]|$)/i;
+var MC_TEST_RE = /(^|[^a-z])(test|new|candidate|proposed|evaluat\w*|method\s*b|meth\s*b|y|poc|analy[sz]er\s*2|instrument\s*2|lab\s*b)([^a-z]|$)/i;
+var MC_ID_RE   = /^(sample|specimen|id|no|nr|num|number|#|index|patient|pt|subject|run|seq|barcode|accession|n)\b|sample.?(id|no)|date|time|lot|replicate|rep$/i;
+var MC_ANALYTE_RE = /analyte|test\s*name|assay|parameter|measurand|component|test$|analysis/i;
+var MC_METHOD_RE  = /method|instrument|analy[sz]er|platform|device|system|lab(oratory)?$/i;
+var MC_VALUE_RE   = /value|result|conc|measure|reading|^y$/i;
+
+function mcAnalyseTable(t) {
+  var rows = t.rows.map(function(r){ return (r || []).slice(); });
+  var width = 0; rows.forEach(function(r){ if (r.length > width) width = r.length; });
+  rows.forEach(function(r){ while (r.length < width) r.push(null); });
+  if (rows.length < 5 || width < 2) return null;
+  var isNumCell = function(v){ return mcNum(v) !== null; };
+  // header row = last row among the first 15 whose cells are mostly non-numeric text, followed by a mostly numeric row
+  var hdr = -1;
+  for (var i = 0; i < Math.min(rows.length - 2, 15); i++) {
+    var nonEmpty = rows[i].filter(function(v){ return v !== null && String(v).trim() !== ''; });
+    if (nonEmpty.length < 2 || nonEmpty.length < width * 0.5) continue;
+    var anyNum = nonEmpty.filter(isNumCell).length;
+    var nextNum = rows[i+1].filter(isNumCell).length;
+    if (anyNum === 0 && nextNum >= 1) { hdr = i; break; }
+    if (anyNum > 0 && anyNum / nonEmpty.length >= 0.5) break;   // data already started: no header
+  }
+  var header = hdr >= 0 ? rows[hdr].map(function(v, k){ return (v === null || String(v).trim() === '') ? 'Column ' + (k + 1) : String(v).trim(); })
+                        : Array.apply(null, Array(width)).map(function(_, k){ return 'Column ' + (k + 1); });
+  var data = rows.slice(hdr + 1);
+  // column typing
+  var cols = [];
+  for (var c = 0; c < width; c++) {
+    var vals = data.map(function(r){ return r[c]; });
+    var filled = vals.filter(function(v){ return v !== null && v !== undefined && String(v).trim() !== ''; });
+    var nums = filled.filter(isNumCell);
+    var info = { idx: c, name: header[c], filled: filled.length, numCount: nums.length, numFrac: filled.length ? nums.length / filled.length : 0, censored: filled.filter(mcCensored).length };
+    var nv = nums.map(mcNum);
+    info.isNumeric = info.numFrac >= 0.7 && nums.length >= 4;
+    if (info.isNumeric) {
+      var sorted = nv.slice(); var mean = nv.reduce(function(a,b){return a+b;},0) / nv.length;
+      info.mean = mean; info.sd = Math.sqrt(nv.reduce(function(a,b){return a+Math.pow(b-mean,2);},0) / Math.max(nv.length-1,1));
+      var seqInt = nv.every(function(v){ return Math.abs(v - Math.round(v)) < 1e-9; }) && nv.every(function(v, k){ return k === 0 || v === nv[k-1] + 1; });
+      var monoInt = nv.every(function(v){ return Math.abs(v - Math.round(v)) < 1e-9; }) && nv.every(function(v, k){ return k === 0 || v > nv[k-1]; }) && new Set(nv).size === nv.length && nv.length > 8;
+      info.isId = seqInt || monoInt || MC_ID_RE.test(info.name);
+      info.isDate = /date|time|day|datum/i.test(info.name);
+    } else {
+      var uniq = new Set(filled.map(function(v){ return String(v).trim(); }));
+      info.unique = uniq.size; info.uniqueVals = Array.from(uniq).slice(0, 200);
+    }
+    cols.push(info);
+  }
+  var numCols = cols.filter(function(c){ return c.isNumeric && !c.isId; });
+  var textCols = cols.filter(function(c){ return !c.isNumeric && c.filled >= 4; });
+
+  var res = { name: t.name, hdr: hdr, header: header, data: data, cols: cols, numCols: numCols, mode: null, score: 0, notes: [] };
+  // long format: a text "method" column with exactly 2 labels (or 2+), a numeric value column and a sample id column
+  var methodCol = textCols.filter(function(c){ return c.unique >= 2 && c.unique <= 12 && MC_METHOD_RE.test(c.name) && c.unique < c.filled / 2; })[0];
+  var valueCol = (numCols.filter(function(c){ return MC_VALUE_RE.test(c.name); })[0]) || (numCols.length === 1 ? numCols[0] : null);
+  var idCol = cols.filter(function(c){ return c.isId || /sample|specimen|patient|id$/i.test(c.name); })[0];
+  if (methodCol && valueCol) {
+    var keyCol = idCol || textCols.filter(function(c){ return c !== methodCol && c.unique > c.filled / 3; })[0];
+    if (keyCol) { res.mode = 'long'; res.methodCol = methodCol; res.valueCol = valueCol; res.keyCol = keyCol; res.methods = methodCol.uniqueVals.slice(0, 12); }
+  }
+  if (!res.mode) {
+    if (numCols.length < 2) return null;
+    res.mode = 'wide';
+    // analyte column (repeated text values) for multi-analyte files
+    res.analyteCol = textCols.filter(function(c){ return MC_ANALYTE_RE.test(c.name) && c.unique >= 2 && c.unique <= 60; })[0] ||
+                     textCols.filter(function(c){ return c.unique >= 2 && c.unique <= 40 && c.unique < c.filled / 3 && !MC_METHOD_RE.test(c.name); })[0] || null;
+    // choose reference/test
+    var refC = numCols.filter(function(c){ return MC_REF_RE.test(c.name); })[0];
+    var tstC = numCols.filter(function(c){ return MC_TEST_RE.test(c.name) && c !== refC; })[0];
+    var how = 'header names';
+    if (!refC || !tstC) {
+      // pick the most correlated pair of numeric columns (paired methods are strongly correlated), tie-break by position
+      var best = null;
+      for (var a = 0; a < numCols.length; a++) for (var b = a + 1; b < numCols.length; b++) {
+        var r = mcPairCorr(data, numCols[a].idx, numCols[b].idx); if (r === null) continue;
+        var sc = r.n >= 4 ? r.r + 0.001 * r.n - 0.0001 * (a + b) : -1;
+        if (!best || sc > best.sc) best = { a: numCols[a], b: numCols[b], sc: sc, r: r.r, n: r.n };
+      }
+      if (!best) return null;
+      refC = refC || best.a; tstC = tstC || (best.b === refC ? best.a : best.b); how = 'columns with the strongest paired agreement (r = ' + best.r.toFixed(3) + ')';
+      if (refC === tstC) tstC = numCols.filter(function(c){ return c !== refC; })[0];
+    }
+    res.refCol = refC; res.testCol = tstC; res.how = how;
+  }
+  return res;
+}
+function mcPairCorr(data, ia, ib) {
+  var xs = [], ys = [];
+  data.forEach(function(r){ var x = mcNum(r[ia]), y = mcNum(r[ib]); if (x !== null && y !== null) { xs.push(x); ys.push(y); } });
+  var n = xs.length; if (n < 4) return null;
+  var mx = xs.reduce(function(a,b){return a+b;},0)/n, my = ys.reduce(function(a,b){return a+b;},0)/n, sxy=0, sxx=0, syy=0;
+  for (var i=0;i<n;i++){ sxy+=(xs[i]-mx)*(ys[i]-my); sxx+=Math.pow(xs[i]-mx,2); syy+=Math.pow(ys[i]-my,2); }
+  if (sxx === 0 || syy === 0) return null; return { r: sxy / Math.sqrt(sxx*syy), n: n };
+}
+
+// Extract pairs for the current selection ------------------------------------------------
+function mcExtractPairs(an, opts) {
+  opts = opts || {}; var xs = [], ys = [], skipped = 0, cens = 0;
+  var rows = an.data;
+  if (an.mode === 'wide') {
+    if (an.analyteCol && opts.analyte && opts.analyte !== '__all__') rows = rows.filter(function(r){ return String(r[an.analyteCol.idx] === null ? '' : r[an.analyteCol.idx]).trim() === opts.analyte; });
+    rows.forEach(function(r) {
+      var xv = r[opts.refIdx], yv = r[opts.testIdx];
+      if (mcCensored(xv) || mcCensored(yv)) cens++;
+      var x = mcNum(xv), y = mcNum(yv);
+      if (x === null || y === null) { if ((xv !== null && String(xv).trim() !== '') || (yv !== null && String(yv).trim() !== '')) skipped++; return; }
+      xs.push(x); ys.push(y);
+    });
+  } else {
+    var A = {}, B = {};
+    rows.forEach(function(r) {
+      var k = String(r[an.keyCol.idx] === null ? '' : r[an.keyCol.idx]).trim(), m = String(r[an.methodCol.idx] === null ? '' : r[an.methodCol.idx]).trim(), v = mcNum(r[an.valueCol.idx]);
+      if (!k || v === null) { skipped++; return; }
+      if (m === opts.refMethod) (A[k] = A[k] || []).push(v); else if (m === opts.testMethod) (B[k] = B[k] || []).push(v);
+    });
+    var mean = function(a){ return a.reduce(function(s,v){return s+v;},0)/a.length; };
+    Object.keys(A).forEach(function(k){ if (B[k]) { xs.push(mean(A[k])); ys.push(mean(B[k])); } else skipped++; });
+  }
+  return { xs: xs, ys: ys, skipped: skipped, censored: cens };
+}
+
+
+function mcExtractMatrix(an, opts) {
+  var labels, rows = an.data, out = [], skipped = 0;
+  if (an.mode === 'wide') {
+    if (an.analyteCol && opts.analyte && opts.analyte !== '__all__') rows = rows.filter(function(r){ return String(r[an.analyteCol.idx] === null ? '' : r[an.analyteCol.idx]).trim() === opts.analyte; });
+    var idxs = [opts.refIdx].concat(opts.testIdxs);
+    labels = idxs.map(function(i){ return an.header[i]; });
+    rows.forEach(function(r) {
+      var v = idxs.map(function(i){ return mcNum(r[i]); });
+      if (v[0] === null || v.slice(1).every(function(x){ return x === null; })) { if (r.some(function(x){ return x !== null && String(x).trim() !== ''; })) skipped++; return; }
+      out.push(v);
+    });
+  } else {
+    var ms = [opts.refMethod].concat(opts.testMethods); labels = ms.slice(); var by = {}, order = [];
+    rows.forEach(function(r) {
+      var k = String(r[an.keyCol.idx] === null ? '' : r[an.keyCol.idx]).trim(), m = String(r[an.methodCol.idx] === null ? '' : r[an.methodCol.idx]).trim(), v = mcNum(r[an.valueCol.idx]);
+      if (!k || v === null || ms.indexOf(m) < 0) { skipped++; return; }
+      if (!by[k]) { by[k] = {}; order.push(k); } (by[k][m] = by[k][m] || []).push(v);
+    });
+    var mean = function(a){ return a.reduce(function(s,v){return s+v;},0)/a.length; };
+    order.forEach(function(k) {
+      var v = ms.map(function(m){ return by[k][m] ? mean(by[k][m]) : null; });
+      if (v[0] === null || v.slice(1).every(function(x){ return x === null; })) { skipped++; return; } out.push(v);
+    });
+  }
+  return { labels: labels, rows: out, skipped: skipped };
+}
+
+// UI ---------------------------------------------------------------------------------------
+function mcSmartHandleFile(file) {
+  if (!file) return;
+  var ext = (file.name.split('.').pop() || '').toLowerCase();
+  if (/^(pdf|png|jpe?g|gif|bmp|tiff?|docx?|pptx?|zip|rar|7z)$/.test(ext)) {
+    notify('".' + ext + '" files cannot be read as data. Export the table as Excel, CSV, TSV, TXT or JSON and upload that.', 'error'); return;
+  }
+  if (file.size > 25 * 1024 * 1024) { notify('File is larger than 25 MB.', 'error'); return; }
+  _mcSmart.fileName = file.name;
+  var st = document.getElementById('mc-smart-status'); if (st) st.innerHTML = 'Reading <strong>' + mcEsc(file.name) + '</strong>…';
+  mcReadFileToTables(file, function(err, tables) {
+    if (err) { if (st) st.innerHTML = '<span style="color:var(--rose);">' + mcEsc(err.message) + '</span>'; notify(err.message, 'error'); return; }
+    var analysed = tables.map(function(t){ var a = null; try { a = mcAnalyseTable(t); } catch (e) { console.error(e); } return a; }).filter(Boolean);
+    if (!analysed.length) {
+      document.getElementById('mc-smart-panel').style.display = 'none'; var _mcc = document.getElementById('mc-multi-card'); if (_mcc) _mcc.style.display = 'none'; if (st) st.innerHTML = '<span style="color:var(--rose);">No paired numeric data found. The file needs at least two numeric columns (reference and test results) with 4 or more rows.</span>';
+      notify('No paired numeric data found in this file.', 'error'); return;
+    }
+    // prefer the sheet with most usable pairs
+    analysed.forEach(function(a) {
+      if (a.mode === 'wide') { var p = mcExtractPairs(a, { refIdx: a.refCol.idx, testIdx: a.testCol.idx, analyte: '__all__' }); a.pairCount = p.xs.length; }
+      else { var p2 = mcExtractPairs(a, { refMethod: a.methods[0], testMethod: a.methods[1] }); a.pairCount = p2.xs.length; }
+    });
+    analysed.sort(function(a, b){ return b.pairCount - a.pairCount; });
+    if (st) st.innerHTML = 'Loaded <strong>' + mcEsc(file.name) + '</strong>';
+    _mcSmart.tables = analysed; _mcSmart.sel = analysed[0];
+    mcSmartRenderPanel();
+  });
+}
+function mcEsc(s) { return String(s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
+
+function mcSmartRenderPanel() {
+  var an = _mcSmart.sel, el = document.getElementById('mc-smart-panel'); if (!an || !el) return;
+  var h = '<div style="font-size:0.7rem;color:var(--text2);line-height:1.6;">';
+  h += '<div style="margin-bottom:0.4rem;"><strong>' + mcEsc(_mcSmart.fileName) + '</strong>';
+  if (_mcSmart.tables.length > 1) {
+    h += ' · sheet <select class="inp" style="width:auto;display:inline-block;padding:0.1rem 0.3rem;font-size:0.7rem;" onchange="mcSmartPickSheet(this.value)">' +
+      _mcSmart.tables.map(function(t, i){ return '<option value="' + i + '"' + (t === an ? ' selected' : '') + '>' + mcEsc(t.name) + ' (' + t.pairCount + ' pairs)</option>'; }).join('') + '</select>';
+  } else h += ' · ' + mcEsc(an.name);
+  h += ' · header ' + (an.hdr >= 0 ? 'found on row ' + (an.hdr + 1) : 'not found (columns numbered)') + '</div>';
+  var numOpts = function(sel){ return an.numCols.map(function(c){ return '<option value="' + c.idx + '"' + (c.idx === sel ? ' selected' : '') + '>' + mcEsc(c.name) + '</option>'; }).join(''); };
+  if (an.mode === 'wide') {
+    // default tests: columns that agree with the reference (r >= 0.5), at least the chosen one
+    var defTests = an.numCols.filter(function(c){ if (c === an.refCol) return false; var r = mcPairCorr(an.data, an.refCol.idx, c.idx); return c === an.testCol || (r && r.r >= 0.5); }).map(function(c){ return c.idx; }).slice(0, 12);
+    h += '<div style="margin-bottom:0.4rem;"><label>Reference column (X)</label><select class="inp" id="mc-sm-ref" onchange="mcSmartRefChanged()">' + numOpts(an.refCol.idx) + '</select></div>' +
+         '<div style="margin-bottom:0.4rem;"><label>Compare against the reference (tick one or more test columns)</label><div id="mc-sm-tests" style="display:flex;flex-wrap:wrap;gap:0.3rem 0.9rem;">' +
+         an.numCols.filter(function(c){ return c !== an.refCol; }).map(function(c){ return '<label style="display:flex;align-items:center;gap:0.25rem;font-size:0.7rem;text-transform:none;letter-spacing:0;"><input type="checkbox" value="' + c.idx + '"' + (defTests.indexOf(c.idx) >= 0 ? ' checked' : '') + ' onchange="mcSmartApply(false)"> ' + mcEsc(c.name) + '</label>'; }).join('') + '</div></div>';
+    if (an.analyteCol) {
+      h += '<div style="margin-bottom:0.4rem;"><label>Analyte column “' + mcEsc(an.analyteCol.name) + '” detected — analysis is run for one analyte at a time</label><select class="inp" id="mc-sm-analyte" onchange="mcSmartApply(false)">' +
+        an.analyteCol.uniqueVals.map(function(v, i){ return '<option value="' + mcEsc(v) + '"' + (i === 0 ? ' selected' : '') + '>' + mcEsc(v) + '</option>'; }).join('') + '</select></div>';
+    }
+    h += '<div style="color:var(--text3);margin-bottom:0.3rem;">Reference chosen by ' + mcEsc(an.how) + '. Tick several tests to compare them all with the reference at once.</div>';
+  } else {
+    var mo = function(sel){ return an.methods.map(function(m){ return '<option' + (m === sel ? ' selected' : '') + '>' + mcEsc(m) + '</option>'; }).join(''); };
+    h += '<div style="color:var(--text3);margin-bottom:0.3rem;">Long format detected: sample “' + mcEsc(an.keyCol.name) + '”, method “' + mcEsc(an.methodCol.name) + '”, value “' + mcEsc(an.valueCol.name) + '”. Replicates are averaged per sample.</div>' +
+         '<div style="margin-bottom:0.4rem;"><label>Reference method (X)</label><select class="inp" id="mc-sm-refm" onchange="mcSmartRefChanged()">' + mo(an.methods[0]) + '</select></div>' +
+         '<div style="margin-bottom:0.4rem;"><label>Compare against the reference (tick one or more test methods)</label><div id="mc-sm-tests" style="display:flex;flex-wrap:wrap;gap:0.3rem 0.9rem;">' +
+         an.methods.slice(1).map(function(m, i){ return '<label style="display:flex;align-items:center;gap:0.25rem;font-size:0.7rem;text-transform:none;letter-spacing:0;"><input type="checkbox" value="' + mcEsc(m) + '" checked onchange="mcSmartApply(false)"> ' + mcEsc(m) + '</label>'; }).join('') + '</div></div>';
+  }
+  h += '<div id="mc-sm-summary" style="margin-top:0.2rem;"></div></div>';
+  el.innerHTML = h; el.style.display = 'block';
+  mcSmartApply(true);
+}
+function mcSmartPickSheet(i) { _mcSmart.sel = _mcSmart.tables[+i]; mcSmartRenderPanel(); }
+
+function mcSmartRefChanged() {
+  var an = _mcSmart.sel, box = document.getElementById('mc-sm-tests'); if (!an || !box) return;
+  if (an.mode === 'wide') { var ref = +document.getElementById('mc-sm-ref').value;
+    box.innerHTML = an.numCols.filter(function(c){ return c.idx !== ref; }).map(function(c){ return '<label style="display:flex;align-items:center;gap:0.25rem;font-size:0.7rem;text-transform:none;letter-spacing:0;"><input type="checkbox" value="' + c.idx + '" checked onchange="mcSmartApply(false)"> ' + mcEsc(c.name) + '</label>'; }).join(''); }
+  else { var rm = document.getElementById('mc-sm-refm').value;
+    box.innerHTML = an.methods.filter(function(m){ return m !== rm; }).map(function(m){ return '<label style="display:flex;align-items:center;gap:0.25rem;font-size:0.7rem;text-transform:none;letter-spacing:0;"><input type="checkbox" value="' + mcEsc(m) + '" checked onchange="mcSmartApply(false)"> ' + mcEsc(m) + '</label>'; }).join(''); }
+  mcSmartApply(false);
+}
+function mcSmartApply(run) {
+  var an = _mcSmart.sel; if (!an) return;
+  var sum = document.getElementById('mc-sm-summary');
+  var ticked = Array.prototype.slice.call(document.querySelectorAll('#mc-sm-tests input:checked')).map(function(c){ return c.value; });
+  if (!ticked.length) { sum.innerHTML = '<span style="color:var(--rose);">Tick at least one test column.</span>'; return; }
+  if (ticked.length > 12) ticked = ticked.slice(0, 12);
+  var opts = {};
+  if (an.mode === 'wide') {
+    opts.refIdx = +document.getElementById('mc-sm-ref').value; opts.testIdxs = ticked.map(Number);
+    var sa = document.getElementById('mc-sm-analyte'); opts.analyte = sa ? sa.value : '__all__';
+  } else { opts.refMethod = document.getElementById('mc-sm-refm').value; opts.testMethods = ticked; }
+  var rl = document.getElementById('mc-ref-label'), tl = document.getElementById('mc-test-label'), ta = document.getElementById('mc-data-input');
+  var warn = [];
+  if (ticked.length === 1) {
+    var p = mcExtractPairs(an, an.mode === 'wide' ? { refIdx: opts.refIdx, testIdx: opts.testIdxs[0], analyte: opts.analyte } : { refMethod: opts.refMethod, testMethod: opts.testMethods[0] });
+    if (p.xs.length < 4) { sum.innerHTML = '<span style="color:var(--rose);">Only ' + p.xs.length + ' usable pairs found — at least 4 are needed.</span>'; return; }
+    ta.value = p.xs.map(function(x, i){ return x + '\t' + p.ys[i]; }).join('\n');
+    rl.value = an.mode === 'wide' ? an.header[opts.refIdx] : opts.refMethod; tl.value = an.mode === 'wide' ? an.header[opts.testIdxs[0]] : opts.testMethods[0];
+    if (p.skipped) warn.push(p.skipped + ' row(s) skipped (missing, text or unmatched values)');
+    if (p.censored) warn.push(p.censored + ' censored value(s) such as “<0.5” excluded');
+    var mx = Math.max.apply(null, p.xs), mn = Math.min.apply(null, p.xs);
+    sum.innerHTML = '<span style="color:var(--emerald);font-weight:700;">✓ ' + p.xs.length + ' pairs loaded</span> (reference range ' + mn.toPrecision(3) + '–' + mx.toPrecision(3) + ')' + (warn.length ? '<br><span style="color:var(--amber);">' + warn.join(' · ') + '</span>' : '');
+  } else {
+    var m = mcExtractMatrix(an, opts);
+    if (m.rows.length < 4) { sum.innerHTML = '<span style="color:var(--rose);">Only ' + m.rows.length + ' usable rows — at least 4 are needed.</span>'; return; }
+    ta.value = m.labels.join('\t') + '\n' + m.rows.map(function(r){ return r.map(function(v){ return v === null ? '' : v; }).join('\t'); }).join('\n');
+    rl.value = m.labels[0]; tl.value = (ticked.length) + ' test methods';
+    if (m.skipped) warn.push(m.skipped + ' row(s) skipped');
+    sum.innerHTML = '<span style="color:var(--emerald);font-weight:700;">✓ ' + m.rows.length + ' samples, 1 reference + ' + ticked.length + ' test methods loaded</span> — each test is compared with the reference using the samples it has in common.' + (warn.length ? '<br><span style="color:var(--amber);">' + warn.join(' · ') + '</span>' : '');
+  }
+  if (run) { notify('Smart import: ' + (ticked.length > 1 ? ticked.length + ' methods' : 'pairs') + ' detected from ' + _mcSmart.fileName + '. Running analysis.', 'success'); setTimeout(runMethodComparison, 150); }
+  else setTimeout(runMethodComparison, 50);
+}
+function mcSmartDrop(ev) {
+  ev.preventDefault(); ev.currentTarget.style.borderColor = 'var(--border)';
+  var f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0]; if (f) mcSmartHandleFile(f);
+}
+
+// ════════════════════════════════════════════════════════
+// METHOD COMPARISON — MULTI-METHOD MODE: one reference vs several test methods at once
+// ════════════════════════════════════════════════════════
+var _mcMultiRes = null, _mcMultiCharts = { reg: null, ba: null };
+var MC_PALETTE = ['#2a78d6', '#eb6834', '#008300', '#6250d6', '#d55181', '#b8860b', '#0e8a8a', '#7a4b2a', '#5a6b7b', '#a23b8c', '#3b7a3b', '#c0392b'];
+
+function mcMultiStats(xs, ys, lambda, tea) {
+  var dem = demingRegression(xs, ys, lambda); if (!dem) return null;
+  var ba = blandAltman(xs, ys), n = xs.length;
+  var mx = dem.xBar, biasPct = (ba.meanDiff / mx) * 100, within = null;
+  if (!isNaN(tea) && tea > 0) { var ok = 0; for (var i = 0; i < n; i++) if (xs[i] !== 0 && Math.abs((ys[i] - xs[i]) / xs[i]) * 100 <= tea) ok++; within = 100 * ok / n; }
+  return { n: n, dem: dem, ba: ba, biasPct: biasPct, within: within,
+           slopeOK: dem.slopeCI[0] <= 1 && dem.slopeCI[1] >= 1, intOK: dem.interceptCI[0] <= 0 && dem.interceptCI[1] >= 0 };
+}
+
+// Multi-column paste: first column = reference, remaining numeric columns = test methods
+function mcMultiFromText() {
+  var raw = document.getElementById('mc-data-input').value.trim(); if (!raw) return null;
+  var rows = mcTextToRows(raw); if (rows.length < 5) return null;
+  var width = Math.max.apply(null, rows.map(function(r){ return r.length; })); if (width < 3) return null;
+  var hasHdr = rows[0].some(function(v){ return v !== '' && mcNum(v) === null; });
+  var names = hasHdr ? rows[0].map(function(v, i){ return v || ('Column ' + (i + 1)); }) : rows[0].map(function(_, i){ return i === 0 ? 'Reference' : 'Method ' + i; });
+  var data = hasHdr ? rows.slice(1) : rows, tests = [];
+  for (var c = 1; c < width; c++) {
+    var xs = [], ys = [];
+    data.forEach(function(r){ var x = mcNum(r[0]), y = mcNum(r[c]); if (x !== null && y !== null) { xs.push(x); ys.push(y); } });
+    if (xs.length >= 4) tests.push({ name: names[c] || ('Method ' + c), xs: xs, ys: ys, skipped: data.length - xs.length });
+  }
+  return { refName: names[0], tests: tests };
+}
+// Entry point used by the Run Analysis button and the smart import:
+// a table with a reference column and two or more numeric test columns runs the multi-method comparison, otherwise the single-pair analysis runs.
+function runMethodComparison() {
+  var d = null; try { d = mcMultiFromText(); } catch (e) { console.error(e); }
+  if (d && d.tests.length >= 2) { mcMultiRun(d); return; }
+  var card = document.getElementById('mc-multi-card'); if (card) card.style.display = 'none';
+  runMethodComparisonSingle();
+}
+
+// Run and render --------------------------------------------------------------------------
+function mcMultiRun(d) {
+  if (!d || !d.tests.length) return;
+  var lambda = parseFloat(document.getElementById('mc-lambda').value) || 1, tea = parseFloat(document.getElementById('mc-tea').value);
+  var res = [];
+  d.tests.forEach(function(t, i) { var s = mcMultiStats(t.xs, t.ys, lambda, tea); if (s) res.push({ name: t.name, xs: t.xs, ys: t.ys, st: s, color: MC_PALETTE[i % MC_PALETTE.length], skipped: t.skipped || 0 }); });
+  if (!res.length) { notify('Regression failed for all methods — check the data.', 'error'); return; }
+  _mcMultiRes = { refName: d.refName, res: res, tea: tea, lambda: lambda };
+  var haveTea = !isNaN(tea) && tea > 0;
+  var order = res.map(function(r, i){ return i; }).sort(function(a, b){ return Math.abs(res[a].st.biasPct) - Math.abs(res[b].st.biasPct); });
+  var f = function(v, k){ return v.toFixed(k === undefined ? 3 : k); };
+  var h = '<div style="font-size:0.72rem;color:var(--text2);margin-bottom:0.5rem;">Reference: <strong>' + mcEsc(d.refName) + '</strong> · ' + res.length + ' test method' + (res.length > 1 ? 's' : '') + ' compared · λ = ' + lambda + (haveTea ? ' · TEa ' + tea + '%' : ' · enter TEa % on the Enter Data tab to grade acceptability') + '. Rows are ordered by smallest absolute bias; click a row to open that pair in the Regression &amp; Bland-Altman tab.</div>';
+  h += '<div style="overflow-x:auto;"><table class="tbl" style="font-size:0.68rem;"><thead><tr><th></th><th>Test method</th><th>n</th><th>Slope (95% CI)</th><th>Intercept (95% CI)</th><th>r</th><th>CCC</th><th>Mean bias</th><th>Bias %</th><th>LoA 95%</th>' + (haveTea ? '<th>Within TEa</th><th>Verdict</th>' : '') + '<th>Flags</th></tr></thead><tbody>';
+  order.forEach(function(i, rank) {
+    var r = res[i], s = r.st, flags = [];
+    if (!s.slopeOK) flags.push('proportional bias'); if (!s.intOK) flags.push('constant bias');
+    var verdict = '';
+    if (haveTea) { var ok = Math.abs(s.biasPct) <= tea; verdict = '<td>' + f(s.within, 1) + '%</td><td><span class="badge ' + (ok ? 'b-green' : 'b-rose') + '">' + (ok ? 'Bias within TEa' : 'Bias exceeds TEa') + '</span></td>'; }
+    h += '<tr style="cursor:pointer;" onclick="mcMultiLoadPair(' + i + ')" title="Open in detailed view"><td><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:' + r.color + ';"></span></td><td><strong>' + mcEsc(r.name) + '</strong>' + (rank === 0 ? ' <span class="badge b-green">lowest bias</span>' : '') + '</td><td class="mono">' + s.n + '</td>' +
+      '<td class="mono">' + f(s.dem.slope, 4) + ' (' + f(s.dem.slopeCI[0], 3) + '–' + f(s.dem.slopeCI[1], 3) + ')</td><td class="mono">' + f(s.dem.intercept, 3) + ' (' + f(s.dem.interceptCI[0], 3) + '–' + f(s.dem.interceptCI[1], 3) + ')</td>' +
+      '<td class="mono">' + f(s.dem.r, 4) + '</td><td class="mono">' + f(s.dem.ccc, 4) + '</td><td class="mono">' + f(s.ba.meanDiff, 3) + '</td><td class="mono">' + f(s.biasPct, 2) + '%</td><td class="mono">' + f(s.ba.loa95lo, 3) + ' to ' + f(s.ba.loa95hi, 3) + '</td>' + verdict +
+      '<td style="color:var(--amber);">' + (flags.join(', ') || '<span style="color:var(--emerald);">none</span>') + '</td></tr>';
+  });
+  h += '</tbody></table></div><div style="font-size:0.64rem;color:var(--text3);margin-top:0.4rem;">Each test method is compared with the reference using the rows where both values are present. Proportional bias = Deming slope CI excludes 1; constant bias = intercept CI excludes 0. Several methods are compared against the same reference independently; no multiplicity adjustment is applied. Training and research use only.</div>';
+  var card = document.getElementById('mc-multi-card');
+  card.innerHTML = '<div class="card-title" style="margin-bottom:0.6rem;">Multi-method comparison — ' + res.length + ' test methods vs one reference</div>' + h +
+    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.8rem;"><div><div style="font-size:0.72rem;font-weight:700;margin-bottom:0.3rem;">Deming regression lines</div><div style="position:relative;height:280px;"><canvas id="mc-multi-reg"></canvas></div></div>' +
+    '<div><div style="font-size:0.72rem;font-weight:700;margin-bottom:0.3rem;">Difference plot (test − reference)</div><div style="position:relative;height:280px;"><canvas id="mc-multi-ba"></canvas></div></div></div>';
+  card.style.display = 'block';
+  mcMultiCharts(res, d.refName);
+}
+
+function mcMultiCharts(res, refName) {
+  if (typeof Chart === 'undefined') return;
+  ['reg', 'ba'].forEach(function(k){ if (_mcMultiCharts[k]) { _mcMultiCharts[k].destroy(); _mcMultiCharts[k] = null; } });
+  var allx = []; res.forEach(function(r){ r.xs.forEach(function(x){ allx.push(x); }); });
+  var lo = Math.min.apply(null, allx), hi = Math.max.apply(null, allx), pad = (hi - lo) * 0.05 || 1;
+  var regSets = [{ label: 'Identity (y = x)', data: [{ x: lo - pad, y: lo - pad }, { x: hi + pad, y: hi + pad }], showLine: true, borderColor: 'rgba(100,100,100,0.6)', borderDash: [5, 4], borderWidth: 1, pointRadius: 0 }];
+  var baSets = [{ label: 'Zero', data: [{ x: lo - pad, y: 0 }, { x: hi + pad, y: 0 }], showLine: true, borderColor: 'rgba(100,100,100,0.6)', borderDash: [5, 4], borderWidth: 1, pointRadius: 0 }];
+  res.forEach(function(r) {
+    regSets.push({ label: r.name, data: r.xs.map(function(x, i){ return { x: x, y: r.ys[i] }; }), backgroundColor: r.color + '88', pointRadius: 2.5, showLine: false });
+    regSets.push({ label: r.name + ' fit', data: [{ x: lo - pad, y: r.st.dem.intercept + r.st.dem.slope * (lo - pad) }, { x: hi + pad, y: r.st.dem.intercept + r.st.dem.slope * (hi + pad) }], showLine: true, borderColor: r.color, borderWidth: 1.6, pointRadius: 0 });
+    baSets.push({ label: r.name, data: r.xs.map(function(x, i){ return { x: x, y: r.ys[i] - x }; }), backgroundColor: r.color + '88', pointRadius: 2.5, showLine: false });
+    baSets.push({ label: r.name + ' mean bias', data: [{ x: lo - pad, y: r.st.ba.meanDiff }, { x: hi + pad, y: r.st.ba.meanDiff }], showLine: true, borderColor: r.color, borderWidth: 1.2, borderDash: [2, 2], pointRadius: 0 });
+  });
+  var legend = { display: true, labels: { font: { size: 9 }, boxWidth: 10, filter: function(it){ return !/ fit$| mean bias$|^Zero$|^Identity/.test(it.text); } } };
+  var opt = function(xt, yt) { return { animation: false, responsive: true, maintainAspectRatio: false, plugins: { legend: legend }, scales: { x: { title: { display: true, text: xt, font: { size: 9 } }, ticks: { font: { size: 8 } } }, y: { title: { display: true, text: yt, font: { size: 9 } }, ticks: { font: { size: 8 } } } } }; };
+  _mcMultiCharts.reg = new Chart(document.getElementById('mc-multi-reg').getContext('2d'), { type: 'scatter', data: { datasets: regSets }, options: opt(refName + ' (reference)', 'Test methods') });
+  _mcMultiCharts.ba = new Chart(document.getElementById('mc-multi-ba').getContext('2d'), { type: 'scatter', data: { datasets: baSets }, options: opt(refName + ' (reference)', 'Difference (test − reference)') });
+}
+
+function mcMultiLoadPair(i) {
+  if (!_mcMultiRes) return; var r = _mcMultiRes.res[i];
+  document.getElementById('mc-data-input').value = r.xs.map(function(x, k){ return x + '\t' + r.ys[k]; }).join('\n');
+  document.getElementById('mc-ref-label').value = _mcMultiRes.refName; document.getElementById('mc-test-label').value = r.name;
+  switchPageTab('mc', 'charts'); runMethodComparisonSingle();
+}
+
 function parseMethodCompData() {
   var raw = document.getElementById('mc-data-input').value.trim();
   var lines = raw.split(/\n/);
@@ -22060,11 +22432,27 @@ function demingRegression(xs, ys, lambda) {
   var intercept = yBar - slope * xBar;
 
   // Standard errors via Linnet bootstrap approximation
-  var seSlope = Math.sqrt( (2*lambda*Sxy*Sxy) / ((n-2) * Math.pow(Syy - lambda*Sxx, 2)) * (Syy + lambda*Sxx + Math.sqrt(Math.pow(Syy-lambda*Sxx,2)+4*lambda*Sxy*Sxy)) / 2 );
-  var seIntercept = seSlope * Math.sqrt(Sxx + xBar*xBar);
+  // Jackknife standard errors (Linnet K. Clin Chem 1990;36:1596-1601): leave-one-pair-out refits
+  function _demFit(ax, ay) {
+    var m = ax.length, mx = 0, my = 0, i;
+    for (i = 0; i < m; i++) { mx += ax[i]; my += ay[i]; } mx /= m; my /= m;
+    var sxx = 0, syy = 0, sxy = 0;
+    for (i = 0; i < m; i++) { sxx += (ax[i]-mx)*(ax[i]-mx); syy += (ay[i]-my)*(ay[i]-my); sxy += (ax[i]-mx)*(ay[i]-my); }
+    sxx /= (m-1); syy /= (m-1); sxy /= (m-1);
+    var b = ((syy - lambda*sxx) + Math.sqrt(Math.pow(syy-lambda*sxx,2) + 4*lambda*sxy*sxy)) / (2*sxy);
+    return { b: b, a: my - b*mx };
+  }
+  var _ps = [], _pi = [];
+  for (var _j = 0; _j < n; _j++) {
+    var _fx = xs.slice(0,_j).concat(xs.slice(_j+1)), _fy = ys.slice(0,_j).concat(ys.slice(_j+1)), _f = _demFit(_fx,_fy);
+    _ps.push(n*slope - (n-1)*_f.b); _pi.push(n*intercept - (n-1)*_f.a);
+  }
+  function _sdMean(v) { var mu = v.reduce(function(p,q){return p+q;},0)/v.length; return Math.sqrt(v.reduce(function(p,q){return p+(q-mu)*(q-mu);},0)/(v.length-1)/v.length); }
+  var seSlope = _sdMean(_ps);
+  var seIntercept = _sdMean(_pi);
 
   // 95% CI
-  var t = getTValue(n-2);
+  var t = getTValue(n-1);
   var slopeCI = [slope - t*seSlope, slope + t*seSlope];
   var interceptCI = [intercept - t*seIntercept, intercept + t*seIntercept];
 
@@ -22097,13 +22485,13 @@ function blandAltman(xs, ys) {
   return { diffs: diffs, avgs: avgs, meanDiff: meanDiff, sdDiff: sdDiff, loa95lo: loa95lo, loa95hi: loa95hi, propSlope: propSlope };
 }
 
-function runMethodComparison() {
-  var d = parseMethodCompData();
+function runMethodComparisonSingle(ov) {
+  var d = ov ? { xs: ov.xs, ys: ov.ys } : parseMethodCompData();
   if (d.xs.length < 4) { notify('Need at least 4 paired observations','error'); return; }
   var lambda = parseFloat(document.getElementById('mc-lambda').value) || 1;
   var tea    = parseFloat(document.getElementById('mc-tea').value);
-  var refLab = document.getElementById('mc-ref-label').value || 'Reference';
-  var tstLab = document.getElementById('mc-test-label').value || 'Test';
+  var refLab = ov ? ov.refLab : (document.getElementById('mc-ref-label').value || 'Reference');
+  var tstLab = ov ? ov.tstLab : (document.getElementById('mc-test-label').value || 'Test');
 
   var dem = demingRegression(d.xs, d.ys, lambda);
   if (!dem) { notify('Regression failed — insufficient data','error'); return; }
@@ -23394,7 +23782,7 @@ function renderValidationROC() {
   if (typeof Chart === 'undefined') return;
   if (_valRocChart) { _valRocChart.destroy(); _valRocChart = null; }
 
-  // Real AUC values from the manuscript's ablation analysis (Table 3, imprecision scenario,
+  // AUC values from the revised manuscript's ablation analysis (Table 4, imprecision scenario,
   // pooled across 300 replications) — no longer hand-picked illustrative examples.
   function rocPoints(auc, n) {
     var pts = [{x:0,y:0}];
@@ -23410,9 +23798,9 @@ function renderValidationROC() {
   _valRocChart = new Chart(canvas.getContext('2d'), {
     type:'scatter',
     data:{datasets:[
-      {label:'Isolation Forest — full features (AUC 0.931)',data:rocPoints(0.931,20),borderColor:'rgba(16,185,129,1)',backgroundColor:'transparent',showLine:true,borderWidth:2,pointRadius:0,tension:0.3},
-      {label:'One-Class SVM — full features (AUC 0.903)',data:rocPoints(0.903,20),borderColor:'rgba(139,92,246,1)',backgroundColor:'transparent',showLine:true,borderWidth:2,pointRadius:0,tension:0.3},
-      {label:'Isolation Forest — raw z-scores only (AUC 0.698)',data:rocPoints(0.698,20),borderColor:'rgba(245,158,11,1)',backgroundColor:'transparent',showLine:true,borderWidth:2,pointRadius:0,tension:0.3},
+      {label:'Isolation Forest — all features (AUC 0.932)',data:rocPoints(0.932,20),borderColor:'rgba(16,185,129,1)',backgroundColor:'transparent',showLine:true,borderWidth:2,pointRadius:0,tension:0.3},
+      {label:'One-Class SVM — all features (AUC 0.925)',data:rocPoints(0.925,20),borderColor:'rgba(139,92,246,1)',backgroundColor:'transparent',showLine:true,borderWidth:2,pointRadius:0,tension:0.3},
+      {label:'Isolation Forest — raw z-scores only (AUC 0.697)',data:rocPoints(0.697,20),borderColor:'rgba(245,158,11,1)',backgroundColor:'transparent',showLine:true,borderWidth:2,pointRadius:0,tension:0.3},
       {label:'Random',data:[{x:0,y:0},{x:1,y:1}],borderColor:'rgba(15,23,42,0.25)',backgroundColor:'transparent',showLine:true,borderWidth:1,borderDash:[4,4],pointRadius:0}
     ]},
     options:{
@@ -23434,26 +23822,25 @@ function exportValidationReport() {
   try {
 
   var content = [
-    'ClinQC Pro — Method Comparison Report (mixed real and illustrative figures)',
+    'ClinQC Pro — Method Comparison Report (simulation results)',
     '====================================================',
     'Generated: ' + new Date().toISOString(),
     '',
     'IMPORTANT — READ BEFORE USING THESE NUMBERS',
     '---------------------------------------------',
-    'REAL, from the accompanying manuscript\'s executed 300-replication Monte Carlo',
-    'simulation (12 analytes, 3 QC levels, 5 fault scenarios): Isolation Forest and',
-    'One-Class SVM AUC values by scenario, CUSUM detection-delay medians and IQRs,',
-    'and the ROC curves. These may be cited with reference to the manuscript.',
+    'The AUC values, detection delays and false-alert rates shown in the Benchmarking and',
+    'Validation pages come from the revised manuscript\'s Monte Carlo simulation of standardized',
+    'QC series (300 replications, 12 analytes, 3 QC levels, 500 runs, onset at run 251, seed 17568;',
+    'Zenodo code package). They describe simulated, idealised conditions; they are not evidence of',
+    'clinical benefit or regulatory compliance and do not describe your laboratory. Cite the',
+    'manuscript and code package rather than this app.',
     '',
-    'STILL ILLUSTRATIVE, not produced by any benchmark this app ran: the',
-    'Change-Point Detection example card and the Feature Weight Reference ratios.',
-    'Do not cite these specific figures as measured results, and do not use them',
-    'to choose a detection method for your laboratory. For figures from your own',
-    'data, run the Training Lab simulator and read what it actually computes.',
+    'Westgard R-4s is implemented as the standard within-run rule (one QC level >+2s and another',
+    '<-2s in the same run). The numerical results are a reconstruction produced for the revision.',
     '',
     'WHAT CLINQC ACTUALLY RUNS ON YOUR DATA (live dashboard, day-to-day use)',
     '---------------------------------------',
-    'Westgard multirules: standard 1-3s / 2-2s / R-4s / 4-1s / 10x rules (exact, not simulated).',
+    'Westgard multirules: 1-3s / 2-2s / 4-1s / 10x per level, and R-4s as the standard within-run rule (one level >+2s, another <-2s in the same run; exact, not simulated).',
     'EWMA: E_t = \u03bb\u00b7z_t + (1\u2212\u03bb)\u00b7E_(t\u22121), \u03bb=0.20, alarm if |E_t| > 1.8 (exact, not simulated).',
     'CUSUM: two-sided cumulative sum, k=0.5\u03c3, h=5\u03c3 per CLSI C24-Ed4 (exact, not simulated).',
     '"Isolation Forest" live score: a fixed-weight sum of 5 features (|z|, |\u0394z|, roll_mean,',
@@ -23474,7 +23861,6 @@ function exportValidationReport() {
     'Parvin CA. Clin Chem. 2008;54(12):2049-2054.',
     'Page ES. Continuous Inspection Schemes. Biometrika. 1954;41(1/2):100-115.',
     'CLSI C24-Ed4. Statistical Quality Control for Quantitative Measurement Procedures. 2016.',
-    'Lundberg SM, Lee SI. A unified approach to interpreting model predictions. NeurIPS 2017;30.',
   ].join('\n');
   var blob = new Blob([content], {type:'text/plain'});
   var a = document.createElement('a');
@@ -23622,7 +24008,7 @@ function exportManuscriptPackage() {
     '',
     'Statistical & Analytical Methods',
     '---------------------------------',
-    'Quality control data were managed and analysed using ClinQC Pro (v5.x), an offline',
+    'Quality control data were managed and analysed using ClinQC Pro (v6.0.0), an offline',
     'laboratory quality management application implementing ISO 15189:2022 and CLSI',
     'C24-Ed4 frameworks.',
     '',
@@ -23677,7 +24063,7 @@ function exportManuscriptPackage() {
     '8. Parvin CA. Assessing the impact of the frequency of QC events on the quality of results. Clin Chem. 2008;54(7):1168-77.',
     '9. Page ES. Continuous inspection schemes. Biometrika. 1954;41:100-115.',
     '',
-    'Generated by ClinQC Pro v5.x',
+    'Generated by ClinQC Pro v6.0.0',
   ]);
 
   var blob = new Blob([methods.join('\n')], {type:'text/plain'});
